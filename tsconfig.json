@@ -1,15 +1,16 @@
 {
-  "compileOnSave": true,
-   "compilerOptions": {
-       "noImplicitAny" : true
-   },
     "compilerOptions": {
-        "module": "commonjs",
-        "noImplicitAny": true,
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "outFile": "js/main.js",
-        "sourceMap": true
+      "outDir": "./dist/",
+      "outFile": "js/app.js",
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "module": "commonjs",
+      "target": "es5",
+      "jsx": "react"
     },
-    "exclude": []
+    "compileOnSave": true,
+    "buildOnSave": true,
+    "atom": {
+        "rewriteTsconfig": true
+    }
 }

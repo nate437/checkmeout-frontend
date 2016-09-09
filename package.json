@@ -1,0 +1,11 @@
+{
+  "name": "check-me-out",
+  "version": "0.1.0",
+  "devDependencies": {
+    "gulp-concat": "^2.6.0"
+  },
+  "dependencies": {
+    "react-dom": "^15.3.1",
+    "react-loader": "^2.4.0"
+  }
+}

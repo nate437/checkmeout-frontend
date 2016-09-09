@@ -1,0 +1,9 @@
+$font: Helvetica, sans-serif;
+$primaryColor: #5ACFFF;
+$secondaryColor: #3350CC;
+
+body{
+  font-family: $font;
+  color: $primaryColor;
+  background-color: $secondaryColor;
+}

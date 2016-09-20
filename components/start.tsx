@@ -12,16 +12,13 @@ export interface Props{
   name:string;
 };
 interface State{
-  name:string;
 };
 
 export class Hello extends React.Component<Props, State>{
-  private getInitialState() {
-    return {name: this.props.name};
-  }
+
   public render() {
     return(
-        <h1>Hello {this.state.name} </h1>
+        <h1>Hello {this.props.name} </h1>
     )
   }
 }

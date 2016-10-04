@@ -1,26 +1,36 @@
 /// <reference path="../typing/react-dom.d.ts"/>
 /// <reference path="../typing/react.d.ts"/>
+/// <reference path="../typing/react-router.d.ts"/>
 
+//BASE LEVEL IMPORTS
 import * as React from 'react';
 import * as DOM from 'react-dom';
+import { Router, Route, IndexRoute, browserHistory, Link} from 'react-router';
 
+//HANDLER IMPORTS
+import Search from './search-page.tsx';
+
+//STYLE IMPORTS
 import '../sass/main.scss';
 
 const doc = document.getElementById('app');
 
-export interface Props{
-  name:string;
-};
-interface State{
-};
-
-export class Hello extends React.Component<Props, State>{
-
-  public render() {
-    return(
-        <h1>Hello {this.props.name} </h1>
-    )
+let App = React.createClass({
+  render() {
+    return (
+      <div className="nav">
+        <Link to="/app/">Home</Link>
+        <Link to="/app/search">Search</Link>
+      </div>
+    );
   }
-}
+});
 
-DOM.render(<Hello name="World!"/>, doc);
+let routes = (
+  <Route  path="/app" component={App}>
+    <Route  path="/app/search" component={Search}/>
+  </Route>
+);
+
+
+DOM.render(<Router history={browserHistory}>{routes}</Router>, doc);

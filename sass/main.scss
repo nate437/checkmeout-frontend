@@ -1,9 +1,33 @@
-$font: Helvetica, sans-serif;
-$primaryColor: #5ACFFF;
-$secondaryColor: #3350CC;
+@import "variables";
+
+//Basics
+h1, h2{
+  font-family: $headerFont !important;
+}
 
 body{
-  font-family: $font;
-  color: $primaryColor;
-  background-color: $secondaryColor;
+  font-family: $bodyFont;
+  margin: 0 !important;
+}
+
+//Nav
+.nav{
+  position: fixed;
+  top:0;
+  left:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $transBlack;
+  width: 75px;
+  height: 100vh;
+}
+
+.nav-item-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item{
+
 }

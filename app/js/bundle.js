@@ -48,6 +48,11 @@
 	/// <reference path="../typing/react.d.ts"/>
 	/// <reference path="../typing/react-router.d.ts"/>
 	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
 	//BASE LEVEL IMPORTS
 	var React = __webpack_require__(1);
 	var DOM = __webpack_require__(34);
@@ -57,12 +62,25 @@
 	//STYLE IMPORTS
 	__webpack_require__(236);
 	var doc = document.getElementById('app');
+	var NavItem = (function (_super) {
+	    __extends(NavItem, _super);
+	    function NavItem() {
+	        _super.apply(this, arguments);
+	    }
+	    NavItem.prototype.render = function () {
+	        return (React.createElement("div", {className: "nav-item"}, React.createElement("span", {dangerouslySetInnerHTML: { __html: this.props.icon }}), React.createElement("div", null, this.props.title)));
+	    };
+	    return NavItem;
+	}(React.Component));
+	//CREATE NAV BAR
 	var App = React.createClass({
 	    render: function () {
-	        return (React.createElement("div", {className: "nav"}, React.createElement(react_router_1.Link, {to: "/app/"}, "Home"), React.createElement(react_router_1.Link, {to: "/app/search"}, "Search")));
+	        return (React.createElement("div", {className: "app-container"}, React.createElement("div", {className: "nav"}, React.createElement("div", {className: "nav-item-container"}, React.createElement(react_router_1.Link, {to: "/app/stores", activeClassName: "active"}, React.createElement(NavItem, {title: "stores", icon: ""})), React.createElement(react_router_1.Link, {to: "/app/search", activeClassName: "active"}, React.createElement(NavItem, {title: "search", icon: ""})), React.createElement(react_router_1.Link, {to: "/app/profile", activeClassName: "active"}, React.createElement(NavItem, {title: "profile", icon: ""})))), React.createElement("div", {className: "app-content-container"}, this.props.children)));
 	    }
 	});
-	var routes = (React.createElement(react_router_1.Route, {path: "/app", component: App}, React.createElement(react_router_1.Route, {path: "/app/search", component: search_page_tsx_1.default})));
+	//DEFINE ROUTES
+	var routes = (React.createElement(react_router_1.Route, {path: "/app", component: App}, React.createElement(react_router_1.Route, {path: "/app/search", component: search_page_tsx_1.default}), React.createElement(react_router_1.Route, {path: "/app/stores", component: search_page_tsx_1.default}), React.createElement(react_router_1.Route, {path: "/app/profile", component: search_page_tsx_1.default})));
+	//RENDER APP
 	DOM.render(React.createElement(react_router_1.Router, {history: react_router_1.browserHistory}, routes), doc);
 
 
@@ -27144,7 +27162,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  font-family: Helvetica, sans-serif;\n  color: #5ACFFF;\n  background-color: #3350CC; }\n", ""]);
+	exports.push([module.id, "h1, h2 {\n  font-family: \"Nixie One\", sans-serif !important; }\n\nbody {\n  font-family: \"Work Sans\", sans-serif;\n  margin: 0 !important; }\n\n.nav {\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background-color: rgba(0, 0, 0, 0.78);\n  width: 75px;\n  height: 100vh; }\n\n.nav-item-container {\n  display: flex;\n  flex-direction: column; }\n", ""]);
 
 	// exports
 

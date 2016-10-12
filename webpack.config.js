@@ -10,7 +10,8 @@ module.exports = {
     module: {
       loaders: [
         { test: /\.tsx?$/, loader: 'ts-loader' },
-        { test: /\.scss$/, loaders: ["style", "css", "sass"]}
+        { test: /\.scss$/, loaders: ["style", "css", "sass"]},
+        { test: /\.svg$/,exclude: /(node_modules)/,loaders: ['react-svg-inline-loader']}
       ]
     }
 };

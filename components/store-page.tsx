@@ -4,13 +4,17 @@
 import * as React from 'react';
 import * as DOM from 'react-dom';
 
-var Search = React.createClass({
+
+var Stores = React.createClass({
+  alert: function(){
+    alert("Welcome to the search!")
+  },
 
   render: function() {
     return(
-        <h1> Welcome to the search.</h1>
+        <h1> Welcome to the stores.</h1>
     )
   }
 });
 
-export default Search;
+export default Stores;

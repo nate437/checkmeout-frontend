@@ -4,13 +4,13 @@
 import * as React from 'react';
 import * as DOM from 'react-dom';
 
-var Search = React.createClass({
+var Profile = React.createClass({
 
   render: function() {
     return(
-        <h1> Welcome to the search.</h1>
+        <h1 > Welcome to the profile.</h1>
     )
   }
 });
 
-export default Search;
+export default Profile;

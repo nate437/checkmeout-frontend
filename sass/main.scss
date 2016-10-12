@@ -10,6 +10,10 @@ body{
   margin: 0 !important;
 }
 
+.app-content-container{
+  margin-left: $navThickness;
+}
+
 //Nav
 .nav{
   position: fixed;
@@ -18,16 +22,27 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: $transBlack;
-  width: 75px;
+  width: $navThickness;
   height: 100vh;
-}
 
-.nav-item-container{
-  display: flex;
-  flex-direction: column;
-}
+  .nav-item-container{
+    height: 40vh;
+    max-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-.nav-item{
+  .nav-item{
+    color: $white;
+    fill: $white;
+    text-decoration: none;
+  }
 
+  a.active .nav-item{
+    color: $orange;
+    fill: $orange;
+  }
 }

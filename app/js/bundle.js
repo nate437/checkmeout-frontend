@@ -59,27 +59,33 @@
 	var react_router_1 = __webpack_require__(172);
 	//HANDLER IMPORTS
 	var search_page_tsx_1 = __webpack_require__(235);
+	var store_page_tsx_1 = __webpack_require__(236);
+	var profile_page_tsx_1 = __webpack_require__(237);
 	//STYLE IMPORTS
-	__webpack_require__(236);
+	__webpack_require__(238);
 	var doc = document.getElementById('app');
+	var StoreIcon = __webpack_require__(242);
+	var SearchIcon = __webpack_require__(243);
+	var ProfileIcon = __webpack_require__(244);
 	var NavItem = (function (_super) {
 	    __extends(NavItem, _super);
 	    function NavItem() {
 	        _super.apply(this, arguments);
 	    }
 	    NavItem.prototype.render = function () {
-	        return (React.createElement("div", {className: "nav-item"}, React.createElement("span", {dangerouslySetInnerHTML: { __html: this.props.icon }}), React.createElement("div", null, this.props.title)));
+	        var Icon = this.props.icon;
+	        return (React.createElement("div", {className: "nav-item"}, React.createElement(Icon, null), React.createElement("div", null, this.props.title)));
 	    };
 	    return NavItem;
 	}(React.Component));
 	//CREATE NAV BAR
 	var App = React.createClass({
 	    render: function () {
-	        return (React.createElement("div", {className: "app-container"}, React.createElement("div", {className: "nav"}, React.createElement("div", {className: "nav-item-container"}, React.createElement(react_router_1.Link, {to: "/app/stores", activeClassName: "active"}, React.createElement(NavItem, {title: "stores", icon: ""})), React.createElement(react_router_1.Link, {to: "/app/search", activeClassName: "active"}, React.createElement(NavItem, {title: "search", icon: ""})), React.createElement(react_router_1.Link, {to: "/app/profile", activeClassName: "active"}, React.createElement(NavItem, {title: "profile", icon: ""})))), React.createElement("div", {className: "app-content-container"}, this.props.children)));
+	        return (React.createElement("div", {className: "app-container"}, React.createElement("div", {className: "nav"}, React.createElement("div", {className: "nav-item-container"}, React.createElement(react_router_1.Link, {to: "/app/stores", activeClassName: "active"}, React.createElement(NavItem, {title: "stores", icon: StoreIcon})), React.createElement(react_router_1.Link, {to: "/app/search", activeClassName: "active"}, React.createElement(NavItem, {title: "search", icon: SearchIcon})), React.createElement(react_router_1.Link, {to: "/app/profile", activeClassName: "active"}, React.createElement(NavItem, {title: "profile", icon: ProfileIcon})))), React.createElement("div", {className: "app-content-container"}, this.props.children)));
 	    }
 	});
 	//DEFINE ROUTES
-	var routes = (React.createElement(react_router_1.Route, {path: "/app", component: App}, React.createElement(react_router_1.Route, {path: "/app/search", component: search_page_tsx_1.default}), React.createElement(react_router_1.Route, {path: "/app/stores", component: search_page_tsx_1.default}), React.createElement(react_router_1.Route, {path: "/app/profile", component: search_page_tsx_1.default})));
+	var routes = (React.createElement(react_router_1.Route, {path: "/app", component: App}, React.createElement(react_router_1.Route, {path: "/app/search", component: search_page_tsx_1.default}), React.createElement(react_router_1.Route, {path: "/app/stores", component: store_page_tsx_1.default}), React.createElement(react_router_1.Route, {path: "/app/profile", component: profile_page_tsx_1.default})));
 	//RENDER APP
 	DOM.render(React.createElement(react_router_1.Router, {history: react_router_1.browserHistory}, routes), doc);
 
@@ -27114,13 +27120,9 @@
 	/// <reference path="../typing/react.d.ts"/>
 	"use strict";
 	var React = __webpack_require__(1);
-	__webpack_require__(236);
 	var Search = React.createClass({
-	    alert: function () {
-	        alert("Welcome to the search!");
-	    },
 	    render: function () {
-	        return (React.createElement("h1", {onClick: this.alert}, "Hello ", this.props.name, " Welcome to the search."));
+	        return (React.createElement("h1", null, " Welcome to the search."));
 	    }
 	});
 	Object.defineProperty(exports, "__esModule", { value: true });
@@ -27131,13 +27133,50 @@
 /* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/// <reference path="../typing/react-dom.d.ts"/>
+	/// <reference path="../typing/react.d.ts"/>
+	"use strict";
+	var React = __webpack_require__(1);
+	var Stores = React.createClass({
+	    alert: function () {
+	        alert("Welcome to the search!");
+	    },
+	    render: function () {
+	        return (React.createElement("h1", null, " Welcome to the stores."));
+	    }
+	});
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Stores;
+
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/// <reference path="../typing/react-dom.d.ts"/>
+	/// <reference path="../typing/react.d.ts"/>
+	"use strict";
+	var React = __webpack_require__(1);
+	var Profile = React.createClass({
+	    render: function () {
+	        return (React.createElement("h1", null, " Welcome to the profile."));
+	    }
+	});
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Profile;
+
+
+/***/ },
+/* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(237);
+	var content = __webpack_require__(239);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(239)(content, {});
+	var update = __webpack_require__(241)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27154,21 +27193,21 @@
 	}
 
 /***/ },
-/* 237 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(238)();
+	exports = module.exports = __webpack_require__(240)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "h1, h2 {\n  font-family: \"Nixie One\", sans-serif !important; }\n\nbody {\n  font-family: \"Work Sans\", sans-serif;\n  margin: 0 !important; }\n\n.nav {\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background-color: rgba(0, 0, 0, 0.78);\n  width: 75px;\n  height: 100vh; }\n\n.nav-item-container {\n  display: flex;\n  flex-direction: column; }\n", ""]);
+	exports.push([module.id, "h1, h2 {\n  font-family: \"Nixie One\", sans-serif !important; }\n\nbody {\n  font-family: \"Work Sans\", sans-serif;\n  margin: 0 !important; }\n\n.app-content-container {\n  margin-left: 75px; }\n\n.nav {\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-color: rgba(0, 0, 0, 0.78);\n  width: 75px;\n  height: 100vh; }\n  .nav .nav-item-container {\n    height: 40vh;\n    max-height: 360px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between; }\n  .nav .nav-item {\n    color: #fff;\n    fill: #fff;\n    text-decoration: none; }\n  .nav a.active .nav-item {\n    color: #d79600;\n    fill: #d79600; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 238 */
+/* 240 */
 /***/ function(module, exports) {
 
 	/*
@@ -27224,7 +27263,7 @@
 
 
 /***/ },
-/* 239 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27473,6 +27512,66 @@
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
+
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	module.exports = React.createClass({
+	    render: function() {
+	        var baseProps = {
+	            className: 'svg-icon',
+	            dangerouslySetInnerHTML: {
+	                __html: '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 33 33" style="enable-background:new 0 0 33 33;" xml:space="preserve"> <g> <path d="M29.3,15.817c-1.364,0-2.558-0.742-3.2-1.843c-0.642,1.102-1.836,1.843-3.2,1.843s-2.559-0.742-3.2-1.843 c-0.641,1.102-1.835,1.843-3.199,1.843c-1.364,0-2.559-0.742-3.2-1.843c-0.642,1.102-1.836,1.843-3.202,1.843 c-1.364,0-2.558-0.742-3.2-1.843c-0.642,1.102-1.836,1.843-3.2,1.843C1.66,15.817,0,14.158,0,12.119V7.195 c0-0.062,0.012-0.124,0.034-0.182l2.363-6.055c0.075-0.192,0.26-0.318,0.466-0.318h27.273c0.206,0,0.391,0.126,0.466,0.318 l2.363,6.055C32.988,7.071,33,7.133,33,7.195v4.924C33,14.158,31.34,15.817,29.3,15.817z M26.101,11.619c0.276,0,0.5,0.224,0.5,0.5 c0,1.488,1.211,2.698,2.7,2.698s2.7-1.21,2.7-2.698v-4.83l-2.205-5.649H3.205L1,7.289v4.83c0,1.488,1.211,2.698,2.699,2.698 c1.489,0,2.7-1.21,2.7-2.698c0-0.276,0.224-0.5,0.5-0.5s0.5,0.224,0.5,0.5c0,1.488,1.211,2.698,2.7,2.698 c1.49,0,2.702-1.21,2.702-2.698c0-0.276,0.224-0.5,0.5-0.5s0.5,0.224,0.5,0.5c0,1.488,1.211,2.698,2.7,2.698 c1.488,0,2.699-1.21,2.699-2.698c0-0.276,0.224-0.5,0.5-0.5s0.5,0.224,0.5,0.5c0,1.488,1.211,2.698,2.7,2.698s2.7-1.21,2.7-2.698 C25.601,11.843,25.824,11.619,26.101,11.619z"/> <path d="M28.39,32.361H4.611c-1.199,0-2.174-0.975-2.174-2.174V19.651c0-0.276,0.224-0.5,0.5-0.5s0.5,0.224,0.5,0.5v10.536 c0,0.647,0.526,1.174,1.174,1.174H28.39c0.648,0,1.175-0.526,1.175-1.174V19.651c0-0.276,0.224-0.5,0.5-0.5s0.5,0.224,0.5,0.5 v10.536C30.564,31.385,29.589,32.361,28.39,32.361z"/> <g> <path d="M14.433,32.16H7.194c-0.276,0-0.5-0.224-0.5-0.5V19.306c0-0.276,0.224-0.5,0.5-0.5h7.238c0.276,0,0.5,0.224,0.5,0.5V31.66 C14.933,31.936,14.709,32.16,14.433,32.16z M7.694,31.16h6.238V19.806H7.694V31.16z"/> <path d="M25.805,26.38h-8.566c-0.276,0-0.5-0.224-0.5-0.5v-6.573c0-0.276,0.224-0.5,0.5-0.5h8.566c0.276,0,0.5,0.224,0.5,0.5 v6.573C26.305,26.156,26.081,26.38,25.805,26.38z M17.738,25.38h7.566v-5.573h-7.566V25.38z"/> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg>'
+	            }
+	        };
+	        var props = Object.assign({}, baseProps, this.props);
+	        return React.createElement('i', props);
+	    }
+	});
+
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	module.exports = React.createClass({
+	    render: function() {
+	        var baseProps = {
+	            className: 'svg-icon',
+	            dangerouslySetInnerHTML: {
+	                __html: '<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 52.966 52.966" style="enable-background:new 0 0 52.966 52.966;" xml:space="preserve" inkscape:version="0.91 r13725" sodipodi:docname="search.svg"><metadata ><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs /><sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="660" inkscape:window-height="480" showgr inkscape:zoom="4.4556886" inkscape:cx="26.483" inkscape:cy="26.483" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:current-layer="Capa_1" /><path d="M 50.20783,49.802407 36.230296,35.26611 c 3.565169,-3.575517 5.773881,-8.504669 5.773881,-13.940847 0,-10.893051 -8.861186,-19.7542376 -19.754237,-19.7542376 -10.893051,0 -19.7542373,8.8611866 -19.7542373,19.7542376 0,10.893051 8.8611863,19.754237 19.7542373,19.754237 4.781466,0 9.169729,-1.709212 12.590034,-4.545356 l 14.011398,14.572042 c 0.184373,0.192839 0.430831,0.288789 0.678229,0.288789 0.23517,0 0.469398,-0.08748 0.65189,-0.26245 0.37439,-0.360279 0.385678,-0.955728 0.02634,-1.330118 z M 22.24994,39.198144 c -9.855483,0 -17.8728813,-8.017398 -17.8728813,-17.872881 0,-9.855483 8.0173983,-17.8728817 17.8728813,-17.8728817 9.855483,0 17.872881,8.0173987 17.872881,17.8728817 0,9.855483 -8.018339,17.872881 -17.872881,17.872881 z" inkscape:connector-curvature="0" /><g /><g /><g /><g /><g /><g /><g /><g /><g /><g /><g /><g /><g /><g /><g /></svg>'
+	            }
+	        };
+	        var props = Object.assign({}, baseProps, this.props);
+	        return React.createElement('i', props);
+	    }
+	});
+
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	module.exports = React.createClass({
+	    render: function() {
+	        var baseProps = {
+	            className: 'svg-icon',
+	            dangerouslySetInnerHTML: {
+	                __html: '<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 488 488" style="enable-background:new 0 0 488 488;" xml:space="preserve" inkscape:version="0.91 r13725" sodipodi:docname="profile.svg"><metadata ><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs /><sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1103" inkscape:window-height="758" showgr inkscape:zoom="0.48360656" inkscape:cx="244" inkscape:cy="244" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:current-layer="g5" /><g ><g ><path d="m 231.9668,-1.9707031 c -37.81842,0.3851079 -73.22548,27.6076841 -83.5733,63.9366901 -6.5089,21.603949 -2.72686,44.467213 -3.74311,66.633623 0.41977,18.8778 -0.79721,37.83976 0.51563,56.67383 1.72568,12.06378 8.19887,23.34292 17.68359,30.98242 0,26.9694 0,53.9388 0,80.9082 -46.60866,23.86698 -91.440387,51.8113 -131.519532,85.60938 C 19.09837,394.2509 14.25723,411.59998 15.650391,428 c 0.340086,18.76608 -0.655111,37.68688 0.451171,56.36523 1.96596,7.37491 13.611556,7.4117 15.41211,-0.0859 0.859603,-21.01921 0.05614,-42.20318 0.335937,-63.2793 -0.770676,-13.87057 7.819533,-26.44858 19.069853,-33.70438 38.261972,-30.4964 80.259908,-55.99328 123.635228,-78.30343 7.76783,-6.45828 3.32227,-17.81876 4.49609,-26.39258 -0.19955,-24.12944 0.38202,-48.32646 -0.25976,-72.41797 -1.95022,-5.91777 -9.30234,-7.52984 -12.02344,-13.10937 -9.56081,-13.01531 -4.93941,-30.01826 -6.01758,-44.9043 0.38426,-24.6267 -0.77498,-49.32059 0.58789,-73.906251 3.76679,-34.364096 34.65556,-63.089294 69.25391,-64.167969 19.67027,-0.400858 40.70489,-1.557759 58.33593,8.810547 25.02145,13.253624 40.45055,41.635648 38.52149,69.71875 -0.2918,30.221223 0.56612,60.502793 -0.39592,90.689363 -1.2925,9.87465 -7.83587,18.09897 -15.85799,23.54697 -4.52609,6.03238 -0.8582,14.45127 -2.04492,21.33984 0.21376,24.66581 -0.41236,49.39227 0.28516,74.02344 2.24752,9.44528 13.63385,10.53639 20.4414,15.34765 40.98656,22.04828 80.73564,47.11763 116.34375,77.26758 9.69263,9.27271 11.06204,23.43006 10.12891,36.08789 0.30496,17.76488 -0.55827,35.64651 0.33594,53.35352 1.76592,7.49523 13.5633,7.4964 15.32812,0 0.8596,-21.01921 0.0562,-42.20318 0.33594,-63.2793 0.66745,-18.13663 -9.29281,-35.41798 -24.13867,-45.47461 -38.11248,-30.37478 -79.63591,-56.38869 -123.06055,-78.46094 0.2374,-27.00477 -0.47452,-54.46522 0.35547,-81.18554 13.33434,-10.55239 19.33806,-28.12675 17.84375,-44.7793 -0.34904,-30.87512 0.67468,-61.79799 -0.46289,-92.646485 C 339.5511,40.451495 309.20539,6.9795976 271.75781,-0.18164062 258.67983,-2.9861457 245.22678,-1.7490006 231.9668,-1.9707031 Z" inkscape:connector-curvature="0" /></g></g><g /><g /><g /><g /><g /><g /><g /><g /><g /><g /><g /><g /><g /><g /><g /></svg>'
+	            }
+	        };
+	        var props = Object.assign({}, baseProps, this.props);
+	        return React.createElement('i', props);
+	    }
+	});
 
 
 /***/ }

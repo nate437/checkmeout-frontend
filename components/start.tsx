@@ -1,12 +1,13 @@
 /// <reference path="../typing/react-dom.d.ts"/>
 /// <reference path="../typing/react.d.ts"/>
 /// <reference path="../typing/react-router.d.ts"/>
+/// <reference path="../typing/react-addons-css-transition-group.d.ts" />
 
 //BASE LEVEL IMPORTS
 import * as React from 'react';
 import * as DOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory, Link} from 'react-router';
-
+import { Router, Route, IndexRedirect, browserHistory, Link} from 'react-router';
+import * as TransitionGroup from 'react-addons-css-transition-group';
 //HANDLER IMPORTS
 import Search from './search-page.tsx';
 import Stores from './store-page.tsx';
@@ -42,7 +43,21 @@ class NavItem extends React.Component<NavProps, {}>{
 
 //CREATE NAV BAR
 let App = React.createClass({
+  getInitialState () {
+    return { prevRoute: '', animation: 'page-view-left'}
+  },
+  componentWillReceiveProps(nextProps:any){
+    var path = nextProps.location.pathname;
+    var animation = "page-view-left";
+    if ((path == "/app/search" && this.state.prevRoute == "/app/profile") || path == "/app/stores"){
+      animation = "page-view-right";
+    }
+    console.log(path + '   ' + this.state.prevRoute);
+    this.setState({prevRoute: path, animation: animation});
+  },
   render() {
+    var path = this.props.location.pathname;
+    var segment = path.split('/')[2] || 'root';
     return (
       <div className="app-container">
         <div className="nav">
@@ -52,11 +67,13 @@ let App = React.createClass({
             <Link to="/app/profile" activeClassName="active"><NavItem title="profile" icon={ProfileIcon}/></Link>
           </div>
         </div>
-
         <div className="app-content-container">
-          {this.props.children}
+          <TransitionGroup
+            transitionName={this.state.animation}
+            transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+            {React.cloneElement(this.props.children, { key: path })}
+          </TransitionGroup>
         </div>
-
       </div>
     );
   }
@@ -64,10 +81,11 @@ let App = React.createClass({
 
 //DEFINE ROUTES
 let routes = (
-  <Route  path="/app" component={App}>
-    <Route  path="/app/search" component={Search}/>
-    <Route  path="/app/stores" component={Stores}/>
-    <Route  path="/app/profile" component={Profile}/>
+  <Route key="root" path="/app" component={App}>
+    <IndexRedirect to="/app/search"/>
+    <Route key="search" path="/app/search" component={Search}/>
+    <Route key="stores" path="/app/stores" component={Stores}/>
+    <Route key="profile" path="/app/profile" component={Profile}/>
   </Route>
 );
 

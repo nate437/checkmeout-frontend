@@ -59,14 +59,14 @@
 	var react_router_1 = __webpack_require__(172);
 	//HANDLER IMPORTS
 	var search_page_tsx_1 = __webpack_require__(235);
-	var store_page_tsx_1 = __webpack_require__(236);
-	var profile_page_tsx_1 = __webpack_require__(237);
+	var store_page_tsx_1 = __webpack_require__(241);
+	var profile_page_tsx_1 = __webpack_require__(245);
 	//STYLE IMPORTS
-	__webpack_require__(238);
+	__webpack_require__(246);
 	var doc = document.getElementById('app');
-	var StoreIcon = __webpack_require__(242);
-	var SearchIcon = __webpack_require__(243);
-	var ProfileIcon = __webpack_require__(244);
+	var StoreIcon = __webpack_require__(248);
+	var SearchIcon = __webpack_require__(249);
+	var ProfileIcon = __webpack_require__(250);
 	var NavItem = (function (_super) {
 	    __extends(NavItem, _super);
 	    function NavItem() {
@@ -27120,9 +27120,10 @@
 	/// <reference path="../typing/react.d.ts"/>
 	"use strict";
 	var React = __webpack_require__(1);
+	var Search_Preview_tsx_1 = __webpack_require__(236);
 	var Search = React.createClass({
 	    render: function () {
-	        return (React.createElement("h1", null, " Welcome to the search."));
+	        return (React.createElement(Search_Preview_tsx_1.default, {imgUrl: "totallyAPicture", itemName: "Test Item"}));
 	    }
 	});
 	Object.defineProperty(exports, "__esModule", { value: true });
@@ -27133,57 +27134,51 @@
 /* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/// <reference path="../typing/react-dom.d.ts"/>
 	/// <reference path="../typing/react.d.ts"/>
 	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
 	var React = __webpack_require__(1);
-	var Stores = React.createClass({
-	    alert: function () {
-	        alert("Welcome to the search!");
-	    },
-	    render: function () {
-	        return (React.createElement("h1", null, " Welcome to the stores."));
+	//STYLE IMPORTS
+	__webpack_require__(237);
+	var SearchPreview = (function (_super) {
+	    __extends(SearchPreview, _super);
+	    function SearchPreview() {
+	        _super.apply(this, arguments);
 	    }
-	});
+	    SearchPreview.prototype.render = function () {
+	        var boxBackground = {
+	            backgroundImage: 'url(' + this.props.imgUrl + ')'
+	        };
+	        return (React.createElement("div", {className: "square-box", style: boxBackground}, React.createElement("div", {className: "text"}, this.props.itemName)));
+	    };
+	    return SearchPreview;
+	}(React.Component));
 	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = Stores;
+	exports.default = SearchPreview;
 
 
 /***/ },
 /* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/// <reference path="../typing/react-dom.d.ts"/>
-	/// <reference path="../typing/react.d.ts"/>
-	"use strict";
-	var React = __webpack_require__(1);
-	var Profile = React.createClass({
-	    render: function () {
-	        return (React.createElement("h1", null, " Welcome to the profile."));
-	    }
-	});
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = Profile;
-
-
-/***/ },
-/* 238 */
-/***/ function(module, exports, __webpack_require__) {
-
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(239);
+	var content = __webpack_require__(238);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(241)(content, {});
+	var update = __webpack_require__(240)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./main.scss", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./main.scss");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./SearchPreview.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./SearchPreview.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -27193,21 +27188,21 @@
 	}
 
 /***/ },
-/* 239 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(240)();
+	exports = module.exports = __webpack_require__(239)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "h1, h2 {\n  font-family: \"Nixie One\", sans-serif !important; }\n\nbody {\n  font-family: \"Work Sans\", sans-serif;\n  margin: 0 !important; }\n\n.app-content-container {\n  margin-left: 75px; }\n\n.nav {\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-color: rgba(0, 0, 0, 0.78);\n  width: 75px;\n  height: 100vh; }\n  .nav .nav-item-container {\n    height: 40vh;\n    max-height: 360px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between; }\n  .nav .nav-item {\n    color: #fff;\n    fill: #fff;\n    text-decoration: none; }\n  .nav a.active .nav-item {\n    color: #d79600;\n    fill: #d79600; }\n", ""]);
+	exports.push([module.id, ".square-box {\n  border: 5px solid #51b5e4;\n  background-color: #fff;\n  width: 50px;\n  height: 50px; }\n\n.text {\n  background-color: rgba(0, 0, 0, 0.78);\n  color: #fff;\n  padding: 2px 4px;\n  display: inline-block;\n  max-width: 100%; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 240 */
+/* 239 */
 /***/ function(module, exports) {
 
 	/*
@@ -27263,7 +27258,7 @@
 
 
 /***/ },
-/* 241 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27515,7 +27510,140 @@
 
 
 /***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/// <reference path="../typing/react-dom.d.ts"/>
+	/// <reference path="../typing/react.d.ts"/>
+	"use strict";
+	var React = __webpack_require__(1);
+	var store_thumbnail_tsx_1 = __webpack_require__(242);
+	var Stores = React.createClass({
+	    render: function () {
+	        return (React.createElement("div", null, React.createElement("div", null), React.createElement("div", null, React.createElement(store_thumbnail_tsx_1.default, null), React.createElement(store_thumbnail_tsx_1.default, null), React.createElement(store_thumbnail_tsx_1.default, null), React.createElement(store_thumbnail_tsx_1.default, null), React.createElement(store_thumbnail_tsx_1.default, null)), React.createElement("div", null)));
+	    }
+	});
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Stores;
+
+
+/***/ },
 /* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/// <reference path="../typing/react.d.ts"/>
+	"use strict";
+	var React = __webpack_require__(1);
+	//STYLE IMPORTS
+	__webpack_require__(243);
+	var StoreThumbnail = React.createClass({
+	    render: function () {
+	        return (React.createElement("div", {className: "store-thumbnail"}, React.createElement("div", {className: "store-thumbnail-name"}, "Fancy store name goes here."), React.createElement("br", null), React.createElement("div", {className: "store-thumbnail-location"}, "Fancy location goes here.")));
+	    }
+	});
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = StoreThumbnail;
+
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(244);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(240)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./store-thumbnail.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./store-thumbnail.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(239)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".store-thumbnail {\n  margin: 20px 0px;\n  background-color: yellow;\n  height: 150px; }\n\n.store-thumbnail-name, .store-thumbnail-location {\n  margin: 4px;\n  background-color: rgba(0, 0, 0, 0.78);\n  color: #fff;\n  display: inline-block;\n  padding: 2px 4px; }\n\n.store-thumbnail-name {\n  font-size: 18px;\n  margin-top: 8px; }\n\n.store-thumbnail-location {\n  font-size: 12px; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/// <reference path="../typing/react-dom.d.ts"/>
+	/// <reference path="../typing/react.d.ts"/>
+	"use strict";
+	var React = __webpack_require__(1);
+	var Profile = React.createClass({
+	    render: function () {
+	        return (React.createElement("h1", null, " Welcome to the profile."));
+	    }
+	});
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Profile;
+
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(247);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(240)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./main.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./main.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(239)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "h1, h2 {\n  font-family: \"Nixie One\", sans-serif !important; }\n\nbody {\n  font-family: \"Work Sans\", sans-serif;\n  margin: 0 !important; }\n\n.app-content-container {\n  margin-left: 75px; }\n\n.nav {\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-color: rgba(0, 0, 0, 0.78);\n  width: 75px;\n  height: 100vh; }\n  .nav .nav-item-container {\n    height: 40vh;\n    max-height: 360px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between; }\n  .nav .nav-item {\n    color: #fff;\n    fill: #fff;\n    text-decoration: none; }\n  .nav a.active .nav-item {\n    color: #d79600;\n    fill: #d79600; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -27535,7 +27663,7 @@
 
 
 /***/ },
-/* 243 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -27555,7 +27683,7 @@
 
 
 /***/ },
-/* 244 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);

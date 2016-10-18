@@ -4,15 +4,26 @@
 import * as React from 'react';
 import * as DOM from 'react-dom';
 
+import StoreThumbnail from './store-thumbnail.tsx';
 
 var Stores = React.createClass({
-  alert: function(){
-    alert("Welcome to the search!")
-  },
-
   render: function() {
     return(
-        <h1> Welcome to the stores.</h1>
+      <div>
+        <div>
+
+        </div>
+        <div>
+          <StoreThumbnail />
+          <StoreThumbnail />
+          <StoreThumbnail />
+          <StoreThumbnail />
+          <StoreThumbnail />
+        </div>
+        <div>
+
+        </div>
+      </div>
     )
   }
 });

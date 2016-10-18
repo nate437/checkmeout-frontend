@@ -4,11 +4,13 @@
 import * as React from 'react';
 import * as DOM from 'react-dom';
 
+import SearchPreview from './Search-Preview.tsx';
+
 var Search = React.createClass({
 
   render: function() {
     return(
-        <h1> Welcome to the search.</h1>
+        <SearchPreview imgUrl="totallyAPicture" itemName="Test Item"/>
     )
   }
 });

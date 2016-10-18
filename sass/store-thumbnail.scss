@@ -1,0 +1,24 @@
+@import "variables";
+
+.store-thumbnail{
+  margin: 20px 0px;
+  background-color: yellow;
+  height: 150px;
+}
+
+.store-thumbnail-name, .store-thumbnail-location {
+  margin: 4px;
+  background-color: $transBlack;
+  color: $white;
+  display: inline-block;
+  padding: 2px 4px;
+}
+
+.store-thumbnail-name {
+  font-size: 18px;
+  margin-top: 8px;
+}
+
+.store-thumbnail-location {
+  font-size: 12px;
+}

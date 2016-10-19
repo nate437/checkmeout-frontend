@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /// <reference path="../typing/react.d.ts"/>
 
 import * as React from 'react';

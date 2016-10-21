@@ -1,0 +1,144 @@
+@import "variables";
+
+//Basics
+h1, h2{
+  font-family: $headerFont !important;
+  margin-top: 0;
+}
+
+body{
+  font-family: $bodyFont;
+  margin: 0 !important;
+}
+
+.app-content-container{
+  margin-left: $navThickness;
+  padding: $appContainerPad;
+  & span>*{
+    position: absolute;
+    @media (max-width: $breakBar) {
+      margin-bottom: $navThickness;
+    }
+  }
+  @media (max-width: $breakBar) {
+    margin-left: 0;
+  }
+}
+
+a{
+  text-decoration: none;
+}
+//Nav
+.nav{
+  position: fixed;
+  top:0;
+  left:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $transBlack;
+  width: $navThickness;
+  height: 100vh;
+
+  .nav-item-container{
+    height: 40vh;
+    max-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (max-width: $breakBar) {
+      flex-direction: row;
+      height: calc(#{$navThickness} - 10px);
+      width: 40vw;
+      min-width: 270px;
+      align-items: baseline;
+    }
+  }
+
+  .nav-item{
+    color: $white;
+    fill: $white;
+    transition: color .25s ease-out, fill .25s ease-out;
+  }
+
+  a.active .nav-item{
+    color: $orange;
+    fill: $orange;
+  }
+
+  @media (max-width: $breakBar) {
+    top: calc(100vh - #{$navThickness});
+    width: 100vw;
+    height: $navThickness;
+    flex-direction: row;
+  }
+}
+
+//Transitions
+.page-view-left-enter {
+  opacity: 0;
+  left: calc( calc(#{$animationOffset} + #{$navThickness}) + #{$appContainerPad});
+  transition: all $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  &.page-view-left-enter-active {
+    opacity: 1;
+    left: calc(#{$navThickness} + #{$appContainerPad});
+    @media (max-width: $breakBar) {
+      left: $appContainerPad;
+    }
+  }
+  @media (max-width: $breakBar) {
+    left: calc( #{$animationOffset} + #{$appContainerPad});
+  }
+}
+
+.page-view-left-leave {
+  opacity: 1;
+  left: calc(#{$navThickness} + #{$appContainerPad});
+  @media (max-width: $breakBar) {
+    left: $appContainerPad;
+  }
+  transition: all $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  &.page-view-left-leave-active {
+    opacity: 0;
+    left: calc( calc(-#{$animationOffset} - #{$navThickness}) - #{$appContainerPad});
+    @media (max-width: $breakBar) {
+      left: calc( -#{$animationOffset} - #{$appContainerPad});
+    }
+  }
+}
+
+
+.page-view-right-enter {
+  opacity: 0;
+  left: calc( calc(-#{$animationOffset} - #{$navThickness}) - #{$appContainerPad});
+  transition: all $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  &.page-view-right-enter-active {
+    opacity: 1;
+    left: calc(#{$navThickness} + #{$appContainerPad});
+    @media (max-width: $breakBar) {
+      left: $appContainerPad;
+    }
+  }
+  @media (max-width: $breakBar) {
+    left: calc( -#{$animationOffset} - #{$appContainerPad});
+  }
+}
+
+.page-view-right-leave {
+  opacity: 1;
+  left: calc(#{$navThickness} + #{$appContainerPad});
+  @media (max-width: $breakBar) {
+    left: $appContainerPad;
+  }
+  transition: all $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  &.page-view-right-leave-active {
+    opacity: 0;
+    left: calc( calc(#{$animationOffset} + #{$navThickness}) + #{$appContainerPad});
+    @media (max-width: $breakBar) {
+      left: calc( #{$animationOffset} + #{$appContainerPad});
+    }
+  }
+
+}

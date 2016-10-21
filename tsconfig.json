@@ -1,15 +1,15 @@
 {
     "compilerOptions": {
-      "outDir": "./dist/",
-      "outFile": "js/app.js",
+      "outDir": "./js/",
+      "removeComments": false,
       "sourceMap": true,
       "noImplicitAny": true,
       "module": "commonjs",
       "target": "es5",
       "jsx": "react"
     },
-    "compileOnSave": true,
-    "buildOnSave": true,
+    "compileOnSave": false,
+    "buildOnSave": false,
     "atom": {
         "rewriteTsconfig": true
     }

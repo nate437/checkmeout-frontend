@@ -26,7 +26,7 @@ class Profile extends React.Component<ProfileProps, {}>{
     }
     return(
       <div>
-        <div className="profile-header">
+        <div className="view-header">
           <h1 style={{float: 'left'}}>My Profile </h1>
           <RoundButton style={{float: 'right'}} text="sign out" action={this.signOut}/>
         </div>

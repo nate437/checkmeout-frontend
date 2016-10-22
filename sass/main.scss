@@ -45,10 +45,10 @@ body{
   padding: $appContainerPad;
   & span>*{
     position: absolute;
-    width: calc(calc(100vw - (2*#{$appContainerPad}) - #{$navThickness});
+    width: calc(calc(100vw - (2*#{$appContainerPad}) - #{$navThickness}));
 
     @media (max-width: $breakBar) {
-      width: calc(100vw - (2*#{$appContainerPad});
+      width: calc(100vw - (2*#{$appContainerPad}));
       margin-bottom: $navThickness;
     }
 
@@ -61,6 +61,10 @@ body{
 
 a{
   text-decoration: none;
+}
+
+.view-header{
+  margin-bottom: 60px;
 }
 
 //Nav

@@ -3,7 +3,7 @@
 
 import * as React from 'react';
 import * as DOM from 'react-dom';
-
+import RoundButton from './round-button.tsx';
 import StoreThumbnail from './store-thumbnail.tsx';
 
 interface StoreState{
@@ -32,8 +32,9 @@ class Stores extends React.Component<{}, StoreState>{
     var data = [{"id":1,"name":"S&T Library","img_url":"https:\/\/media.glassdoor.com\/l\/a0\/c3\/2c\/36\/curtis-laws-wilson-library.jpg","location":"400 W 14th St, Rolla, MO 65409"}];
     return(
       <div>
-        <div>
-
+        <div className="view-header">
+        <h1 style={{float: 'left'}}>My Stores </h1>
+        <RoundButton style={{float: 'right'}} text="add stores" action={function(){}}/>
         </div>
 
         <div>

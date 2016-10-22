@@ -9,7 +9,6 @@ import * as React from 'react';
 import * as DOM from 'react-dom';
 import { Router, Route, IndexRedirect, browserHistory, Link} from 'react-router';
 import * as TransitionGroup from 'react-addons-css-transition-group';
-
 //HANDLER IMPORTS
 import Search from './search-page.tsx';
 import Stores from './store-page.tsx';
@@ -67,6 +66,7 @@ let App = React.createClass({
     if ((path == "/app/a/search" && this.state.prevRoute == "/app/a/profile") || path == "/app/a/stores"){
       animation = "page-view-right";
     }
+	 console.log(path + '   ' + this.state.prevRoute);
     this.setState({prevRoute: path, animation: animation});
   },
   render() {
@@ -93,9 +93,10 @@ let App = React.createClass({
   }
 });
 
+
 //DEFINE ROUTES
 let routes = (
-  <Route key="singin" path="/app/" component={BaseApp}>
+  <Route key="singin" path="/app/signin" component={BaseApp}>
     <IndexRedirect to="/app/signin"/>
     <Route key="singin" path="/app/signin" component={Signin}/>
     <Route key="root" path="/app/a" component={App}>
@@ -106,7 +107,6 @@ let routes = (
     </Route>
   </Route>
 );
-
 
 //RENDER APP
 DOM.render(<Router history={browserHistory}>{routes}</Router>, doc);

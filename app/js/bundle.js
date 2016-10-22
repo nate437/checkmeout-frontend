@@ -61,6 +61,7 @@
 	var TransitionGroup = __webpack_require__(235);
 	//HANDLER IMPORTS
 	var search_page_tsx_1 = __webpack_require__(242);
+<<<<<<< HEAD
 	var store_page_tsx_1 = __webpack_require__(248);
 	var profile_page_tsx_1 = __webpack_require__(252);
 	//STYLE IMPORTS
@@ -69,6 +70,16 @@
 	var StoreIcon = __webpack_require__(263);
 	var SearchIcon = __webpack_require__(264);
 	var ProfileIcon = __webpack_require__(265);
+=======
+	var store_page_tsx_1 = __webpack_require__(251);
+	var profile_page_tsx_1 = __webpack_require__(255);
+	//STYLE IMPORTS
+	__webpack_require__(256);
+	var doc = document.getElementById('app');
+	var StoreIcon = __webpack_require__(258);
+	var SearchIcon = __webpack_require__(259);
+	var ProfileIcon = __webpack_require__(260);
+>>>>>>> searchPageBr
 	var NavItem = (function (_super) {
 	    __extends(NavItem, _super);
 	    function NavItem() {
@@ -91,6 +102,10 @@
 	        if ((path == "/app/search" && this.state.prevRoute == "/app/profile") || path == "/app/stores") {
 	            animation = "page-view-right";
 	        }
+<<<<<<< HEAD
+=======
+	        console.log(path + '   ' + this.state.prevRoute);
+>>>>>>> searchPageBr
 	        this.setState({ prevRoute: path, animation: animation });
 	    },
 	    render: function () {
@@ -101,6 +116,7 @@
 	});
 	//DEFINE ROUTES
 	var routes = (React.createElement(react_router_1.Route, {key: "root", path: "/app", component: App}, React.createElement(react_router_1.IndexRedirect, {to: "/app/search"}), React.createElement(react_router_1.Route, {key: "search", path: "/app/search", component: search_page_tsx_1.default}), React.createElement(react_router_1.Route, {key: "stores", path: "/app/stores", component: store_page_tsx_1.default}), React.createElement(react_router_1.Route, {key: "profile", path: "/app/profile", component: profile_page_tsx_1.default})));
+<<<<<<< HEAD
 	/*
 	//DEFINE ROUTES
 	let routes = (
@@ -116,6 +132,8 @@
 	  </Route>
 	);
 	*/
+=======
+>>>>>>> searchPageBr
 	//RENDER APP
 	DOM.render(React.createElement(react_router_1.Router, {history: react_router_1.browserHistory}, routes), doc);
 
@@ -1117,6 +1135,17 @@
 	  var source = null;
 
 	  if (config != null) {
+<<<<<<< HEAD
+=======
+	    if (process.env.NODE_ENV !== 'production') {
+	      process.env.NODE_ENV !== 'production' ? warning(
+	      /* eslint-disable no-proto */
+	      config.__proto__ == null || config.__proto__ === Object.prototype,
+	      /* eslint-enable no-proto */
+	      'React.createElement(...): Expected props argument to be a plain object. ' + 'Properties defined in its prototype chain will be ignored.') : void 0;
+	    }
+
+>>>>>>> searchPageBr
 	    if (hasValidRef(config)) {
 	      ref = config.ref;
 	    }
@@ -1217,6 +1246,17 @@
 	  var owner = element._owner;
 
 	  if (config != null) {
+<<<<<<< HEAD
+=======
+	    if (process.env.NODE_ENV !== 'production') {
+	      process.env.NODE_ENV !== 'production' ? warning(
+	      /* eslint-disable no-proto */
+	      config.__proto__ == null || config.__proto__ === Object.prototype,
+	      /* eslint-enable no-proto */
+	      'React.cloneElement(...): Expected props argument to be a plain object. ' + 'Properties defined in its prototype chain will be ignored.') : void 0;
+	    }
+
+>>>>>>> searchPageBr
 	    if (hasValidRef(config)) {
 	      // Silently steal the ref from the parent.
 	      ref = config.ref;
@@ -4250,7 +4290,11 @@
 
 	'use strict';
 
+<<<<<<< HEAD
 	module.exports = '15.3.2';
+=======
+	module.exports = '15.3.1';
+>>>>>>> searchPageBr
 
 /***/ },
 /* 33 */
@@ -5232,10 +5276,15 @@
 	function getFallbackBeforeInputChars(topLevelType, nativeEvent) {
 	  // If we are currently composing (IME) and using a fallback to do so,
 	  // try to extract the composed characters from the fallback object.
+<<<<<<< HEAD
 	  // If composition event is available, we extract a string only at
 	  // compositionevent, otherwise extract it at fallback events.
 	  if (currentComposition) {
 	    if (topLevelType === topLevelTypes.topCompositionEnd || !canUseCompositionEvent && isFallbackCompositionEnd(topLevelType, nativeEvent)) {
+=======
+	  if (currentComposition) {
+	    if (topLevelType === topLevelTypes.topCompositionEnd || isFallbackCompositionEnd(topLevelType, nativeEvent)) {
+>>>>>>> searchPageBr
 	      var chars = currentComposition.getData();
 	      FallbackCompositionState.release(currentComposition);
 	      currentComposition = null;
@@ -6844,8 +6893,12 @@
 
 	    if (event.preventDefault) {
 	      event.preventDefault();
+<<<<<<< HEAD
 	    } else if (typeof event.returnValue !== 'unknown') {
 	      // eslint-disable-line valid-typeof
+=======
+	    } else {
+>>>>>>> searchPageBr
 	      event.returnValue = false;
 	    }
 	    this.isDefaultPrevented = emptyFunction.thatReturnsTrue;
@@ -7102,7 +7155,11 @@
 	var doesChangeEventBubble = false;
 	if (ExecutionEnvironment.canUseDOM) {
 	  // See `handleChange` comment below
+<<<<<<< HEAD
 	  doesChangeEventBubble = isEventSupported('change') && (!document.documentMode || document.documentMode > 8);
+=======
+	  doesChangeEventBubble = isEventSupported('change') && (!('documentMode' in document) || document.documentMode > 8);
+>>>>>>> searchPageBr
 	}
 
 	function manualDispatchChangeEvent(nativeEvent) {
@@ -7168,7 +7225,11 @@
 	  // deleting text, so we ignore its input events.
 	  // IE10+ fire input events to often, such when a placeholder
 	  // changes or when an input with a placeholder is focused.
+<<<<<<< HEAD
 	  isInputEventSupported = isEventSupported('input') && (!document.documentMode || document.documentMode > 11);
+=======
+	  isInputEventSupported = isEventSupported('input') && (!('documentMode' in document) || document.documentMode > 11);
+>>>>>>> searchPageBr
 	}
 
 	/**
@@ -8397,6 +8458,15 @@
 	    endLifeCycleTimer(debugID, timerType);
 	    emitEvent('onEndLifeCycleTimer', debugID, timerType);
 	  },
+<<<<<<< HEAD
+=======
+	  onError: function (debugID) {
+	    if (currentTimerDebugID != null) {
+	      endLifeCycleTimer(currentTimerDebugID, currentTimerType);
+	    }
+	    emitEvent('onError', debugID);
+	  },
+>>>>>>> searchPageBr
 	  onBeginProcessingChildContext: function () {
 	    emitEvent('onBeginProcessingChildContext');
 	  },
@@ -9470,8 +9540,11 @@
 	    allowFullScreen: HAS_BOOLEAN_VALUE,
 	    allowTransparency: 0,
 	    alt: 0,
+<<<<<<< HEAD
 	    // specifies target context for links with `preload` type
 	    as: 0,
+=======
+>>>>>>> searchPageBr
 	    async: HAS_BOOLEAN_VALUE,
 	    autoComplete: 0,
 	    // autoFocus is polyfilled/normalized by AutoFocusUtils
@@ -9552,7 +9625,10 @@
 	    optimum: 0,
 	    pattern: 0,
 	    placeholder: 0,
+<<<<<<< HEAD
 	    playsInline: HAS_BOOLEAN_VALUE,
+=======
+>>>>>>> searchPageBr
 	    poster: 0,
 	    preload: 0,
 	    profile: 0,
@@ -10075,9 +10151,15 @@
 	  if (node.namespaceURI === DOMNamespaces.svg && !('innerHTML' in node)) {
 	    reusableSVGContainer = reusableSVGContainer || document.createElement('div');
 	    reusableSVGContainer.innerHTML = '<svg>' + html + '</svg>';
+<<<<<<< HEAD
 	    var svgNode = reusableSVGContainer.firstChild;
 	    while (svgNode.firstChild) {
 	      node.appendChild(svgNode.firstChild);
+=======
+	    var newNodes = reusableSVGContainer.firstChild.childNodes;
+	    for (var i = 0; i < newNodes.length; i++) {
+	      node.appendChild(newNodes[i]);
+>>>>>>> searchPageBr
 	    }
 	  } else {
 	    node.innerHTML = html;
@@ -11005,9 +11087,15 @@
 	  ReactDOMOption.postMountWrapper(inst);
 	}
 
+<<<<<<< HEAD
 	var setAndValidateContentChildDev = emptyFunction;
 	if (process.env.NODE_ENV !== 'production') {
 	  setAndValidateContentChildDev = function (content) {
+=======
+	var setContentChildForInstrumentation = emptyFunction;
+	if (process.env.NODE_ENV !== 'production') {
+	  setContentChildForInstrumentation = function (content) {
+>>>>>>> searchPageBr
 	    var hasExistingContent = this._contentDebugID != null;
 	    var debugID = this._debugID;
 	    // This ID represents the inlined child that has no backing instance:
@@ -11021,7 +11109,10 @@
 	      return;
 	    }
 
+<<<<<<< HEAD
 	    validateDOMNesting(null, String(content), this, this._ancestorInfo);
+=======
+>>>>>>> searchPageBr
 	    this._contentDebugID = contentDebugID;
 	    if (hasExistingContent) {
 	      ReactInstrumentation.debugTool.onBeforeUpdateComponent(contentDebugID, content);
@@ -11196,7 +11287,11 @@
 	  this._flags = 0;
 	  if (process.env.NODE_ENV !== 'production') {
 	    this._ancestorInfo = null;
+<<<<<<< HEAD
 	    setAndValidateContentChildDev.call(this, null);
+=======
+	    setContentChildForInstrumentation.call(this, null);
+>>>>>>> searchPageBr
 	  }
 	}
 
@@ -11296,7 +11391,11 @@
 	      if (parentInfo) {
 	        // parentInfo should always be present except for the top-level
 	        // component when server rendering
+<<<<<<< HEAD
 	        validateDOMNesting(this._tag, null, this, parentInfo);
+=======
+	        validateDOMNesting(this._tag, this, parentInfo);
+>>>>>>> searchPageBr
 	      }
 	      this._ancestorInfo = validateDOMNesting.updatedAncestorInfo(parentInfo, this._tag, this);
 	    }
@@ -11465,7 +11564,11 @@
 	        // TODO: Validate that text is allowed as a child of this node
 	        ret = escapeTextContentForBrowser(contentToUse);
 	        if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
 	          setAndValidateContentChildDev.call(this, contentToUse);
+=======
+	          setContentChildForInstrumentation.call(this, contentToUse);
+>>>>>>> searchPageBr
 	        }
 	      } else if (childrenToUse != null) {
 	        var mountImages = this.mountChildren(childrenToUse, transaction, context);
@@ -11502,7 +11605,11 @@
 	      if (contentToUse != null) {
 	        // TODO: Validate that text is allowed as a child of this node
 	        if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
 	          setAndValidateContentChildDev.call(this, contentToUse);
+=======
+	          setContentChildForInstrumentation.call(this, contentToUse);
+>>>>>>> searchPageBr
 	        }
 	        DOMLazyTree.queueText(lazyTree, contentToUse);
 	      } else if (childrenToUse != null) {
@@ -11734,7 +11841,11 @@
 	      if (lastContent !== nextContent) {
 	        this.updateTextContent('' + nextContent);
 	        if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
 	          setAndValidateContentChildDev.call(this, nextContent);
+=======
+	          setContentChildForInstrumentation.call(this, nextContent);
+>>>>>>> searchPageBr
 	        }
 	      }
 	    } else if (nextHtml != null) {
@@ -11746,7 +11857,11 @@
 	      }
 	    } else if (nextChildren != null) {
 	      if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
 	        setAndValidateContentChildDev.call(this, null);
+=======
+	        setContentChildForInstrumentation.call(this, null);
+>>>>>>> searchPageBr
 	      }
 
 	      this.updateChildren(nextChildren, transaction, context);
@@ -11801,7 +11916,11 @@
 	    this._wrapperState = null;
 
 	    if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
 	      setAndValidateContentChildDev.call(this, null);
+=======
+	      setContentChildForInstrumentation.call(this, null);
+>>>>>>> searchPageBr
 	    }
 	  },
 
@@ -13074,6 +13193,7 @@
 	  },
 
 	  /**
+<<<<<<< HEAD
 	   * Protect against document.createEvent() returning null
 	   * Some popup blocker extensions appear to do this:
 	   * https://github.com/facebook/react/issues/6887
@@ -13087,6 +13207,8 @@
 	  },
 
 	  /**
+=======
+>>>>>>> searchPageBr
 	   * Listens to window scroll and resize events. We cache scroll values so that
 	   * application code can access them without triggering reflows.
 	   *
@@ -13099,7 +13221,11 @@
 	   */
 	  ensureScrollValueMonitoring: function () {
 	    if (hasEventPageXY === undefined) {
+<<<<<<< HEAD
 	      hasEventPageXY = ReactBrowserEventEmitter.supportsEventPageXY();
+=======
+	      hasEventPageXY = document.createEvent && 'pageX' in document.createEvent('MouseEvent');
+>>>>>>> searchPageBr
 	    }
 	    if (!hasEventPageXY && !isMonitoringScrollValue) {
 	      var refresh = ViewportMetrics.refreshScrollValues;
@@ -13385,7 +13511,11 @@
 
 	function isControlled(props) {
 	  var usesChecked = props.type === 'checkbox' || props.type === 'radio';
+<<<<<<< HEAD
 	  return usesChecked ? props.checked != null : props.value != null;
+=======
+	  return usesChecked ? props.checked !== undefined : props.value !== undefined;
+>>>>>>> searchPageBr
 	}
 
 	/**
@@ -15158,6 +15288,31 @@
 	  }
 	}
 
+<<<<<<< HEAD
+=======
+	function invokeComponentDidMountWithTimer() {
+	  var publicInstance = this._instance;
+	  if (this._debugID !== 0) {
+	    ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentDidMount');
+	  }
+	  publicInstance.componentDidMount();
+	  if (this._debugID !== 0) {
+	    ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentDidMount');
+	  }
+	}
+
+	function invokeComponentDidUpdateWithTimer(prevProps, prevState, prevContext) {
+	  var publicInstance = this._instance;
+	  if (this._debugID !== 0) {
+	    ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentDidUpdate');
+	  }
+	  publicInstance.componentDidUpdate(prevProps, prevState, prevContext);
+	  if (this._debugID !== 0) {
+	    ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentDidUpdate');
+	  }
+	}
+
+>>>>>>> searchPageBr
 	function shouldConstruct(Component) {
 	  return !!(Component.prototype && Component.prototype.isReactComponent);
 	}
@@ -15166,6 +15321,7 @@
 	  return !!(Component.prototype && Component.prototype.isPureReactComponent);
 	}
 
+<<<<<<< HEAD
 	// Separated into a function to contain deoptimizations caused by try/finally.
 	function measureLifeCyclePerf(fn, debugID, timerType) {
 	  if (debugID === 0) {
@@ -15183,6 +15339,8 @@
 	  }
 	}
 
+=======
+>>>>>>> searchPageBr
 	/**
 	 * ------------------ The Life-Cycle of a Composite Component ------------------
 	 *
@@ -15274,8 +15432,11 @@
 	   * @internal
 	   */
 	  mountComponent: function (transaction, hostParent, hostContainerInfo, context) {
+<<<<<<< HEAD
 	    var _this = this;
 
+=======
+>>>>>>> searchPageBr
 	    this._context = context;
 	    this._mountOrder = nextMountID++;
 	    this._hostParent = hostParent;
@@ -15365,11 +15526,15 @@
 
 	    if (inst.componentDidMount) {
 	      if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
 	        transaction.getReactMountReady().enqueue(function () {
 	          measureLifeCyclePerf(function () {
 	            return inst.componentDidMount();
 	          }, _this._debugID, 'componentDidMount');
 	        });
+=======
+	        transaction.getReactMountReady().enqueue(invokeComponentDidMountWithTimer, this);
+>>>>>>> searchPageBr
 	      } else {
 	        transaction.getReactMountReady().enqueue(inst.componentDidMount, inst);
 	      }
@@ -15393,6 +15558,7 @@
 
 	  _constructComponentWithoutOwner: function (doConstruct, publicProps, publicContext, updateQueue) {
 	    var Component = this._currentElement.type;
+<<<<<<< HEAD
 
 	    if (doConstruct) {
 	      if (process.env.NODE_ENV !== 'production') {
@@ -15413,6 +15579,37 @@
 	    } else {
 	      return Component(publicProps, publicContext, updateQueue);
 	    }
+=======
+	    var instanceOrElement;
+	    if (doConstruct) {
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'ctor');
+	        }
+	      }
+	      instanceOrElement = new Component(publicProps, publicContext, updateQueue);
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'ctor');
+	        }
+	      }
+	    } else {
+	      // This can still be an instance in case of factory components
+	      // but we'll count this as time spent rendering as the more common case.
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'render');
+	        }
+	      }
+	      instanceOrElement = Component(publicProps, publicContext, updateQueue);
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'render');
+	        }
+	      }
+	    }
+	    return instanceOrElement;
+>>>>>>> searchPageBr
 	  },
 
 	  performInitialMountWithErrorHandling: function (renderedElement, hostParent, hostContainerInfo, transaction, context) {
@@ -15421,6 +15618,14 @@
 	    try {
 	      markup = this.performInitialMount(renderedElement, hostParent, hostContainerInfo, transaction, context);
 	    } catch (e) {
+<<<<<<< HEAD
+=======
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onError();
+	        }
+	      }
+>>>>>>> searchPageBr
 	      // Roll back to checkpoint, handle error (which may add items to the transaction), and take a new checkpoint
 	      transaction.rollback(checkpoint);
 	      this._instance.unstable_handleError(e);
@@ -15441,6 +15646,7 @@
 
 	  performInitialMount: function (renderedElement, hostParent, hostContainerInfo, transaction, context) {
 	    var inst = this._instance;
+<<<<<<< HEAD
 
 	    var debugID = 0;
 	    if (process.env.NODE_ENV !== 'production') {
@@ -15454,6 +15660,19 @@
 	        }, debugID, 'componentWillMount');
 	      } else {
 	        inst.componentWillMount();
+=======
+	    if (inst.componentWillMount) {
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentWillMount');
+	        }
+	      }
+	      inst.componentWillMount();
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentWillMount');
+	        }
+>>>>>>> searchPageBr
 	      }
 	      // When mounting, calls to `setState` by `componentWillMount` will set
 	      // `this._pendingStateQueue` without triggering a re-render.
@@ -15473,12 +15692,24 @@
 	    );
 	    this._renderedComponent = child;
 
+<<<<<<< HEAD
 	    var markup = ReactReconciler.mountComponent(child, transaction, hostParent, hostContainerInfo, this._processChildContext(context), debugID);
 
 	    if (process.env.NODE_ENV !== 'production') {
 	      if (debugID !== 0) {
 	        var childDebugIDs = child._debugID !== 0 ? [child._debugID] : [];
 	        ReactInstrumentation.debugTool.onSetChildren(debugID, childDebugIDs);
+=======
+	    var selfDebugID = 0;
+	    if (process.env.NODE_ENV !== 'production') {
+	      selfDebugID = this._debugID;
+	    }
+	    var markup = ReactReconciler.mountComponent(child, transaction, hostParent, hostContainerInfo, this._processChildContext(context), selfDebugID);
+
+	    if (process.env.NODE_ENV !== 'production') {
+	      if (this._debugID !== 0) {
+	        ReactInstrumentation.debugTool.onSetChildren(this._debugID, child._debugID !== 0 ? [child._debugID] : []);
+>>>>>>> searchPageBr
 	      }
 	    }
 
@@ -15499,22 +15730,41 @@
 	    if (!this._renderedComponent) {
 	      return;
 	    }
+<<<<<<< HEAD
 
+=======
+>>>>>>> searchPageBr
 	    var inst = this._instance;
 
 	    if (inst.componentWillUnmount && !inst._calledComponentWillUnmount) {
 	      inst._calledComponentWillUnmount = true;
+<<<<<<< HEAD
 
+=======
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentWillUnmount');
+	        }
+	      }
+>>>>>>> searchPageBr
 	      if (safely) {
 	        var name = this.getName() + '.componentWillUnmount()';
 	        ReactErrorUtils.invokeGuardedCallback(name, inst.componentWillUnmount.bind(inst));
 	      } else {
+<<<<<<< HEAD
 	        if (process.env.NODE_ENV !== 'production') {
 	          measureLifeCyclePerf(function () {
 	            return inst.componentWillUnmount();
 	          }, this._debugID, 'componentWillUnmount');
 	        } else {
 	          inst.componentWillUnmount();
+=======
+	        inst.componentWillUnmount();
+	      }
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentWillUnmount');
+>>>>>>> searchPageBr
 	        }
 	      }
 	    }
@@ -15601,6 +15851,7 @@
 	  _processChildContext: function (currentContext) {
 	    var Component = this._currentElement.type;
 	    var inst = this._instance;
+<<<<<<< HEAD
 	    var childContext;
 
 	    if (inst.getChildContext) {
@@ -15616,6 +15867,15 @@
 	      }
 	    }
 
+=======
+	    if (process.env.NODE_ENV !== 'production') {
+	      ReactInstrumentation.debugTool.onBeginProcessingChildContext();
+	    }
+	    var childContext = inst.getChildContext && inst.getChildContext();
+	    if (process.env.NODE_ENV !== 'production') {
+	      ReactInstrumentation.debugTool.onEndProcessingChildContext();
+	    }
+>>>>>>> searchPageBr
 	    if (childContext) {
 	      !(typeof Component.childContextTypes === 'object') ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getChildContext(): childContextTypes must be defined in order to use getChildContext().', this.getName() || 'ReactCompositeComponent') : _prodInvariant('107', this.getName() || 'ReactCompositeComponent') : void 0;
 	      if (process.env.NODE_ENV !== 'production') {
@@ -15710,11 +15970,23 @@
 	    // immediately reconciled instead of waiting for the next batch.
 	    if (willReceive && inst.componentWillReceiveProps) {
 	      if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
 	        measureLifeCyclePerf(function () {
 	          return inst.componentWillReceiveProps(nextProps, nextContext);
 	        }, this._debugID, 'componentWillReceiveProps');
 	      } else {
 	        inst.componentWillReceiveProps(nextProps, nextContext);
+=======
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentWillReceiveProps');
+	        }
+	      }
+	      inst.componentWillReceiveProps(nextProps, nextContext);
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentWillReceiveProps');
+	        }
+>>>>>>> searchPageBr
 	      }
 	    }
 
@@ -15724,11 +15996,23 @@
 	    if (!this._pendingForceUpdate) {
 	      if (inst.shouldComponentUpdate) {
 	        if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
 	          shouldUpdate = measureLifeCyclePerf(function () {
 	            return inst.shouldComponentUpdate(nextProps, nextState, nextContext);
 	          }, this._debugID, 'shouldComponentUpdate');
 	        } else {
 	          shouldUpdate = inst.shouldComponentUpdate(nextProps, nextState, nextContext);
+=======
+	          if (this._debugID !== 0) {
+	            ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'shouldComponentUpdate');
+	          }
+	        }
+	        shouldUpdate = inst.shouldComponentUpdate(nextProps, nextState, nextContext);
+	        if (process.env.NODE_ENV !== 'production') {
+	          if (this._debugID !== 0) {
+	            ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'shouldComponentUpdate');
+	          }
+>>>>>>> searchPageBr
 	        }
 	      } else {
 	        if (this._compositeType === CompositeTypes.PureClass) {
@@ -15794,8 +16078,11 @@
 	   * @private
 	   */
 	  _performComponentUpdate: function (nextElement, nextProps, nextState, nextContext, transaction, unmaskedContext) {
+<<<<<<< HEAD
 	    var _this2 = this;
 
+=======
+>>>>>>> searchPageBr
 	    var inst = this._instance;
 
 	    var hasComponentDidUpdate = Boolean(inst.componentDidUpdate);
@@ -15810,11 +16097,23 @@
 
 	    if (inst.componentWillUpdate) {
 	      if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
 	        measureLifeCyclePerf(function () {
 	          return inst.componentWillUpdate(nextProps, nextState, nextContext);
 	        }, this._debugID, 'componentWillUpdate');
 	      } else {
 	        inst.componentWillUpdate(nextProps, nextState, nextContext);
+=======
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentWillUpdate');
+	        }
+	      }
+	      inst.componentWillUpdate(nextProps, nextState, nextContext);
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentWillUpdate');
+	        }
+>>>>>>> searchPageBr
 	      }
 	    }
 
@@ -15828,9 +16127,13 @@
 
 	    if (hasComponentDidUpdate) {
 	      if (process.env.NODE_ENV !== 'production') {
+<<<<<<< HEAD
 	        transaction.getReactMountReady().enqueue(function () {
 	          measureLifeCyclePerf(inst.componentDidUpdate.bind(inst, prevProps, prevState, prevContext), _this2._debugID, 'componentDidUpdate');
 	        });
+=======
+	        transaction.getReactMountReady().enqueue(invokeComponentDidUpdateWithTimer.bind(this, prevProps, prevState, prevContext), this);
+>>>>>>> searchPageBr
 	      } else {
 	        transaction.getReactMountReady().enqueue(inst.componentDidUpdate.bind(inst, prevProps, prevState, prevContext), inst);
 	      }
@@ -15847,12 +16150,15 @@
 	    var prevComponentInstance = this._renderedComponent;
 	    var prevRenderedElement = prevComponentInstance._currentElement;
 	    var nextRenderedElement = this._renderValidatedComponent();
+<<<<<<< HEAD
 
 	    var debugID = 0;
 	    if (process.env.NODE_ENV !== 'production') {
 	      debugID = this._debugID;
 	    }
 
+=======
+>>>>>>> searchPageBr
 	    if (shouldUpdateReactComponent(prevRenderedElement, nextRenderedElement)) {
 	      ReactReconciler.receiveComponent(prevComponentInstance, nextRenderedElement, transaction, this._processChildContext(context));
 	    } else {
@@ -15865,12 +16171,24 @@
 	      );
 	      this._renderedComponent = child;
 
+<<<<<<< HEAD
 	      var nextMarkup = ReactReconciler.mountComponent(child, transaction, this._hostParent, this._hostContainerInfo, this._processChildContext(context), debugID);
 
 	      if (process.env.NODE_ENV !== 'production') {
 	        if (debugID !== 0) {
 	          var childDebugIDs = child._debugID !== 0 ? [child._debugID] : [];
 	          ReactInstrumentation.debugTool.onSetChildren(debugID, childDebugIDs);
+=======
+	      var selfDebugID = 0;
+	      if (process.env.NODE_ENV !== 'production') {
+	        selfDebugID = this._debugID;
+	      }
+	      var nextMarkup = ReactReconciler.mountComponent(child, transaction, this._hostParent, this._hostContainerInfo, this._processChildContext(context), selfDebugID);
+
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (this._debugID !== 0) {
+	          ReactInstrumentation.debugTool.onSetChildren(this._debugID, child._debugID !== 0 ? [child._debugID] : []);
+>>>>>>> searchPageBr
 	        }
 	      }
 
@@ -15892,6 +16210,7 @@
 	   */
 	  _renderValidatedComponentWithoutOwnerOrContext: function () {
 	    var inst = this._instance;
+<<<<<<< HEAD
 	    var renderedComponent;
 
 	    if (process.env.NODE_ENV !== 'production') {
@@ -15900,6 +16219,19 @@
 	      }, this._debugID, 'render');
 	    } else {
 	      renderedComponent = inst.render();
+=======
+
+	    if (process.env.NODE_ENV !== 'production') {
+	      if (this._debugID !== 0) {
+	        ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'render');
+	      }
+	    }
+	    var renderedComponent = inst.render();
+	    if (process.env.NODE_ENV !== 'production') {
+	      if (this._debugID !== 0) {
+	        ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'render');
+	      }
+>>>>>>> searchPageBr
 	    }
 
 	    if (process.env.NODE_ENV !== 'production') {
@@ -15950,7 +16282,11 @@
 	    var publicComponentInstance = component.getPublicInstance();
 	    if (process.env.NODE_ENV !== 'production') {
 	      var componentName = component && component.getName ? component.getName() : 'a component';
+<<<<<<< HEAD
 	      process.env.NODE_ENV !== 'production' ? warning(publicComponentInstance != null || component._compositeType !== CompositeTypes.StatelessFunctional, 'Stateless function components cannot be given refs ' + '(See ref "%s" in %s created by %s). ' + 'Attempts to access this ref will fail.', ref, componentName, this.getName()) : void 0;
+=======
+	      process.env.NODE_ENV !== 'production' ? warning(publicComponentInstance != null, 'Stateless function components cannot be given refs ' + '(See ref "%s" in %s created by %s). ' + 'Attempts to access this ref will fail.', ref, componentName, this.getName()) : void 0;
+>>>>>>> searchPageBr
 	    }
 	    var refs = inst.refs === emptyObject ? inst.refs = {} : inst.refs;
 	    refs[ref] = publicComponentInstance;
@@ -17141,16 +17477,23 @@
 
 	  var didWarn = {};
 
+<<<<<<< HEAD
 	  validateDOMNesting = function (childTag, childText, childInstance, ancestorInfo) {
+=======
+	  validateDOMNesting = function (childTag, childInstance, ancestorInfo) {
+>>>>>>> searchPageBr
 	    ancestorInfo = ancestorInfo || emptyAncestorInfo;
 	    var parentInfo = ancestorInfo.current;
 	    var parentTag = parentInfo && parentInfo.tag;
 
+<<<<<<< HEAD
 	    if (childText != null) {
 	      process.env.NODE_ENV !== 'production' ? warning(childTag == null, 'validateDOMNesting: when childText is passed, childTag should be null') : void 0;
 	      childTag = '#text';
 	    }
 
+=======
+>>>>>>> searchPageBr
 	    var invalidParent = isTagValidWithParent(childTag, parentTag) ? null : parentInfo;
 	    var invalidAncestor = invalidParent ? null : findInvalidAncestorForTag(childTag, ancestorInfo);
 	    var problematic = invalidParent || invalidAncestor;
@@ -17198,6 +17541,7 @@
 	      didWarn[warnKey] = true;
 
 	      var tagDisplayName = childTag;
+<<<<<<< HEAD
 	      var whitespaceInfo = '';
 	      if (childTag === '#text') {
 	        if (/\S/.test(childText)) {
@@ -17207,6 +17551,9 @@
 	          whitespaceInfo = ' Make sure you don\'t have any extra whitespace between tags on ' + 'each line of your source code.';
 	        }
 	      } else {
+=======
+	      if (childTag !== '#text') {
+>>>>>>> searchPageBr
 	        tagDisplayName = '<' + childTag + '>';
 	      }
 
@@ -17215,7 +17562,11 @@
 	        if (ancestorTag === 'table' && childTag === 'tr') {
 	          info += ' Add a <tbody> to your code to match the DOM tree generated by ' + 'the browser.';
 	        }
+<<<<<<< HEAD
 	        process.env.NODE_ENV !== 'production' ? warning(false, 'validateDOMNesting(...): %s cannot appear as a child of <%s>.%s ' + 'See %s.%s', tagDisplayName, ancestorTag, whitespaceInfo, ownerInfo, info) : void 0;
+=======
+	        process.env.NODE_ENV !== 'production' ? warning(false, 'validateDOMNesting(...): %s cannot appear as a child of <%s>. ' + 'See %s.%s', tagDisplayName, ancestorTag, ownerInfo, info) : void 0;
+>>>>>>> searchPageBr
 	      } else {
 	        process.env.NODE_ENV !== 'production' ? warning(false, 'validateDOMNesting(...): %s cannot appear as a descendant of ' + '<%s>. See %s.', tagDisplayName, ancestorTag, ownerInfo) : void 0;
 	      }
@@ -17522,7 +17873,11 @@
 	      if (parentInfo) {
 	        // parentInfo should always be present except for the top-level
 	        // component when server rendering
+<<<<<<< HEAD
 	        validateDOMNesting(null, this._stringText, this, parentInfo);
+=======
+	        validateDOMNesting('#text', this, parentInfo);
+>>>>>>> searchPageBr
 	      }
 	    }
 
@@ -19115,7 +19470,11 @@
 	      bubbled: keyOf({ onSelect: null }),
 	      captured: keyOf({ onSelectCapture: null })
 	    },
+<<<<<<< HEAD
 	    dependencies: [topLevelTypes.topBlur, topLevelTypes.topContextMenu, topLevelTypes.topFocus, topLevelTypes.topKeyDown, topLevelTypes.topKeyUp, topLevelTypes.topMouseDown, topLevelTypes.topMouseUp, topLevelTypes.topSelectionChange]
+=======
+	    dependencies: [topLevelTypes.topBlur, topLevelTypes.topContextMenu, topLevelTypes.topFocus, topLevelTypes.topKeyDown, topLevelTypes.topMouseDown, topLevelTypes.topMouseUp, topLevelTypes.topSelectionChange]
+>>>>>>> searchPageBr
 	  }
 	};
 
@@ -27981,10 +28340,19 @@
 	/// <reference path="../typing/react.d.ts"/>
 	"use strict";
 	var React = __webpack_require__(1);
+<<<<<<< HEAD
 	var Search_Preview_tsx_1 = __webpack_require__(243);
 	var Search = React.createClass({
 	    render: function () {
 	        return (React.createElement(Search_Preview_tsx_1.default, {imgUrl: "totallyAPicture", itemName: "Test Item"}));
+=======
+	var search_preview_tsx_1 = __webpack_require__(243);
+	var search_bar_tsx_1 = __webpack_require__(248);
+	var Search = React.createClass({
+	    render: function () {
+	        var data = [{ "id": 1, "name": "laptop", "img_url": "https://i5.walmartimages.com/dfw/4ff9c6c9-2ac9/k2-_ed8b8f8d-e696-4a96-8ce9-d78246f10ed1.v1.jpg", "store_id": "1", "tag_id": "12344" }];
+	        return (React.createElement("div", null, React.createElement(search_bar_tsx_1.default, null), React.createElement("br", null), React.createElement("br", null), React.createElement(search_preview_tsx_1.default, {imgUrl: data[0].img_url, itemName: data[0].name})));
+>>>>>>> searchPageBr
 	    }
 	});
 	Object.defineProperty(exports, "__esModule", { value: true });
@@ -28014,7 +28382,11 @@
 	        var boxBackground = {
 	            backgroundImage: 'url(' + this.props.imgUrl + ')'
 	        };
+<<<<<<< HEAD
 	        return (React.createElement("div", {className: "square-box", style: boxBackground}, React.createElement("div", {className: "text"}, this.props.itemName)));
+=======
+	        return (React.createElement("div", {className: "searchpreview-square-box", style: boxBackground}, React.createElement("br", null), React.createElement("div", {className: "searchpreview-text"}, this.props.itemName)));
+>>>>>>> searchPageBr
 	    };
 	    return SearchPreview;
 	}(React.Component));
@@ -28038,8 +28410,13 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
+<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./SearchPreview.scss", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./SearchPreview.scss");
+=======
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./search-preview.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./search-preview.scss");
+>>>>>>> searchPageBr
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -28057,7 +28434,11 @@
 
 
 	// module
+<<<<<<< HEAD
 	exports.push([module.id, ".square-box {\n  border: 5px solid #51b5e4;\n  background-color: #fff;\n  width: 50px;\n  height: 50px; }\n\n.text {\n  background-color: rgba(0, 0, 0, 0.78);\n  color: #fff;\n  padding: 2px 4px;\n  display: inline-block;\n  max-width: 100%; }\n", ""]);
+=======
+	exports.push([module.id, ".searchpreview-square-box {\n  border: 5px solid #51b5e4;\n  background-color: #fff;\n  width: 150px;\n  height: 150px;\n  background-size: cover; }\n\n.searchpreview-text {\n  background-color: rgba(0, 0, 0, 0.78);\n  color: #fff;\n  padding: 2px 4px;\n  display: inline-block;\n  max-width: 100%; }\n", ""]);
+>>>>>>> searchPageBr
 
 	// exports
 
@@ -28066,6 +28447,7 @@
 /* 246 */
 /***/ function(module, exports) {
 
+<<<<<<< HEAD
 	/*
 		MIT License http://www.opensource.org/licenses/mit-license.php
 		Author Tobias Koppers @sokra
@@ -28116,12 +28498,65 @@
 		};
 		return list;
 	};
+=======
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+>>>>>>> searchPageBr
 
 
 /***/ },
 /* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 	/*
 		MIT License http://www.opensource.org/licenses/mit-license.php
 		Author Tobias Koppers @sokra
@@ -28477,6 +28912,258 @@
 
 /***/ },
 /* 253 */
+=======
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ },
+/* 248 */
+>>>>>>> searchPageBr
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../typing/react.d.ts"/>
@@ -28487,6 +29174,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(1);
+<<<<<<< HEAD
 	__webpack_require__(254);
 	var RoundButton = (function (_super) {
 	    __extends(RoundButton, _super);
@@ -28504,12 +29192,36 @@
 
 /***/ },
 /* 254 */
+=======
+	//STYLE IMPORTS
+	__webpack_require__(249);
+	var SearchPreview = (function (_super) {
+	    __extends(SearchPreview, _super);
+	    function SearchPreview() {
+	        _super.apply(this, arguments);
+	    }
+	    SearchPreview.prototype.render = function () {
+	        return (React.createElement("div", {className: "searchbar-bar"}));
+	    };
+	    return SearchPreview;
+	}(React.Component));
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = SearchPreview;
+
+
+/***/ },
+/* 249 */
+>>>>>>> searchPageBr
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
+<<<<<<< HEAD
 	var content = __webpack_require__(255);
+=======
+	var content = __webpack_require__(250);
+>>>>>>> searchPageBr
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(247)(content, {});
@@ -28518,8 +29230,13 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
+<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./round-button.scss", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./round-button.scss");
+=======
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./search-bar.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./search-bar.scss");
+>>>>>>> searchPageBr
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -28529,7 +29246,11 @@
 	}
 
 /***/ },
+<<<<<<< HEAD
 /* 255 */
+=======
+/* 250 */
+>>>>>>> searchPageBr
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(246)();
@@ -28537,12 +29258,17 @@
 
 
 	// module
+<<<<<<< HEAD
 	exports.push([module.id, ".round-button {\n  display: inline;\n  background-color: #d79600;\n  color: #fff;\n  padding: 10px 15px;\n  border-radius: 20px; }\n", ""]);
+=======
+	exports.push([module.id, ".searchbar-bar {\n  border: 2px solid #d79600;\n  background-color: #fff;\n  width: 500px;\n  height: 20px; }\n", ""]);
+>>>>>>> searchPageBr
 
 	// exports
 
 
 /***/ },
+<<<<<<< HEAD
 /* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -28611,12 +29337,55 @@
 
 /***/ },
 /* 259 */
+=======
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/// <reference path="../typing/react-dom.d.ts"/>
+	/// <reference path="../typing/react.d.ts"/>
+	"use strict";
+	var React = __webpack_require__(1);
+	var store_thumbnail_tsx_1 = __webpack_require__(252);
+	var Stores = React.createClass({
+	    render: function () {
+	        return (React.createElement("div", null, React.createElement("div", null), React.createElement("div", null, React.createElement(store_thumbnail_tsx_1.default, null), React.createElement(store_thumbnail_tsx_1.default, null), React.createElement(store_thumbnail_tsx_1.default, null), React.createElement(store_thumbnail_tsx_1.default, null), React.createElement(store_thumbnail_tsx_1.default, null)), React.createElement("div", null)));
+	    }
+	});
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Stores;
+
+
+/***/ },
+/* 252 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/// <reference path="../typing/react.d.ts"/>
+	"use strict";
+	var React = __webpack_require__(1);
+	//STYLE IMPORTS
+	__webpack_require__(253);
+	var StoreThumbnail = React.createClass({
+	    render: function () {
+	        return (React.createElement("div", {className: "store-thumbnail"}, React.createElement("div", {className: "store-thumbnail-name"}, "Fancy store name goes here."), React.createElement("br", null), React.createElement("div", {className: "store-thumbnail-location"}, "Fancy location goes here.")));
+	    }
+	});
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = StoreThumbnail;
+
+
+/***/ },
+/* 253 */
+>>>>>>> searchPageBr
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
+<<<<<<< HEAD
 	var content = __webpack_require__(260);
+=======
+	var content = __webpack_require__(254);
+>>>>>>> searchPageBr
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(247)(content, {});
@@ -28625,8 +29394,13 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
+<<<<<<< HEAD
 			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./profile.scss", function() {
 				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./profile.scss");
+=======
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./store-thumbnail.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./store-thumbnail.scss");
+>>>>>>> searchPageBr
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -28636,7 +29410,11 @@
 	}
 
 /***/ },
+<<<<<<< HEAD
 /* 260 */
+=======
+/* 254 */
+>>>>>>> searchPageBr
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(246)();
@@ -28644,19 +29422,48 @@
 
 
 	// module
+<<<<<<< HEAD
 	exports.push([module.id, ".profile-header {\n  margin-bottom: 60px; }\n\n.profile-summary {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin-bottom: 20px; }\n\n.profile-pic {\n  background-color: #51b5e4;\n  width: 150px;\n  height: 150px;\n  background-size: cover;\n  margin-right: 20px; }\n\n.profile-name {\n  font-size: 25px;\n  font-weight: 300; }\n\n.profile-counter-cluster {\n  margin-top: 40px;\n  display: flex;\n  align-items: flex-end; }\n", ""]);
+=======
+	exports.push([module.id, ".store-thumbnail {\n  margin: 20px 0px;\n  background-color: yellow;\n  height: 150px; }\n\n.store-thumbnail-name, .store-thumbnail-location {\n  margin: 4px;\n  background-color: rgba(0, 0, 0, 0.78);\n  color: #fff;\n  display: inline-block;\n  padding: 2px 4px; }\n\n.store-thumbnail-name {\n  font-size: 18px;\n  margin-top: 8px; }\n\n.store-thumbnail-location {\n  font-size: 12px; }\n", ""]);
+>>>>>>> searchPageBr
 
 	// exports
 
 
 /***/ },
+<<<<<<< HEAD
 /* 261 */
+=======
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/// <reference path="../typing/react-dom.d.ts"/>
+	/// <reference path="../typing/react.d.ts"/>
+	"use strict";
+	var React = __webpack_require__(1);
+	var Profile = React.createClass({
+	    render: function () {
+	        return (React.createElement("h1", null, " Welcome to the profile."));
+	    }
+	});
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Profile;
+
+
+/***/ },
+/* 256 */
+>>>>>>> searchPageBr
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
+<<<<<<< HEAD
 	var content = __webpack_require__(262);
+=======
+	var content = __webpack_require__(257);
+>>>>>>> searchPageBr
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(247)(content, {});
@@ -28676,7 +29483,11 @@
 	}
 
 /***/ },
+<<<<<<< HEAD
 /* 262 */
+=======
+/* 257 */
+>>>>>>> searchPageBr
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(246)();
@@ -28684,13 +29495,21 @@
 
 
 	// module
+<<<<<<< HEAD
 	exports.push([module.id, "h1, h2 {\n  font-family: \"Nixie One\", sans-serif !important;\n  margin-top: 0; }\n\nbody {\n  font-family: \"Work Sans\", sans-serif;\n  margin: 0 !important;\n  overflow-x: hidden; }\n\n::-webkit-scrollbar {\n  height: 0;\n  overflow: visible;\n  width: 7px;\n  background-color: transparent; }\n\n::-webkit-scrollbar-thumb {\n  background-color: rgba(0, 0, 0, 0.5);\n  background-clip: padding-box;\n  min-height: 28px;\n  padding: 100px 0 0;\n  border-radius: 7px; }\n\n::-webkit-scrollbar-button {\n  height: 0;\n  width: 0; }\n\n::-webkit-scrollbar-track {\n  background-clip: padding-box;\n  border: solid transparent;\n  border-width: 0 0 0 4px; }\n\n::-webkit-scrollbar-corner {\n  background: transparent; }\n\n.app-content-container {\n  position: relative;\n  z-index: 1;\n  margin-left: 85px;\n  padding: 20px; }\n  .app-content-container span > * {\n    position: absolute;\n    width: calc(calc(100vw - (2*20px) - 85px)); }\n    @media (max-width: 768px) {\n      .app-content-container span > * {\n        width: calc(100vw - (2*20px));\n        margin-bottom: 85px; } }\n  @media (max-width: 768px) {\n    .app-content-container {\n      margin-left: 0; } }\n\na {\n  text-decoration: none; }\n\n.nav {\n  position: fixed;\n  z-index: 20;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-color: rgba(0, 0, 0, 0.78);\n  width: 85px;\n  height: 100vh; }\n  .nav .nav-item-container {\n    height: 40vh;\n    max-height: 360px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between; }\n    @media (max-width: 768px) {\n      .nav .nav-item-container {\n        flex-direction: row;\n        height: calc(85px - 10px);\n        width: 40vw;\n        min-width: 270px;\n        align-items: baseline; } }\n  .nav .nav-item {\n    color: #fff;\n    fill: #fff;\n    transition: color .25s ease-out, fill .25s ease-out; }\n  .nav a.active .nav-item {\n    color: #d79600;\n    fill: #d79600; }\n  @media (max-width: 768px) {\n    .nav {\n      top: calc(100vh - 85px);\n      width: 100vw;\n      height: 85px;\n      flex-direction: row; } }\n\n.page-view-left-enter {\n  opacity: 0;\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  .page-view-left-enter.page-view-left-enter-active {\n    opacity: 1; }\n    @media (min-width: 769px) {\n      .page-view-left-enter.page-view-left-enter-active {\n        top: 20px; } }\n    @media (max-width: 768px) {\n      .page-view-left-enter.page-view-left-enter-active {\n        left: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-left-enter {\n      left: calc( 200px + 20px); } }\n  @media (min-width: 769px) {\n    .page-view-left-enter {\n      top: calc( 200px + 20px); } }\n\n.page-view-left-leave {\n  opacity: 1;\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  @media (min-width: 769px) {\n    .page-view-left-leave {\n      top: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-left-leave {\n      left: 20px; } }\n  .page-view-left-leave.page-view-left-leave-active {\n    opacity: 0; }\n    @media (min-width: 769px) {\n      .page-view-left-leave.page-view-left-leave-active {\n        top: calc( -200px - 20px); } }\n    @media (max-width: 768px) {\n      .page-view-left-leave.page-view-left-leave-active {\n        left: calc( -200px - 20px); } }\n\n.page-view-right-enter {\n  opacity: 0;\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  .page-view-right-enter.page-view-right-enter-active {\n    opacity: 1; }\n    @media (min-width: 769px) {\n      .page-view-right-enter.page-view-right-enter-active {\n        top: 20px; } }\n    @media (max-width: 768px) {\n      .page-view-right-enter.page-view-right-enter-active {\n        left: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-right-enter {\n      left: calc( -200px - 20px); } }\n  @media (min-width: 769px) {\n    .page-view-right-enter {\n      top: calc( -200px - 20px); } }\n\n.page-view-right-leave {\n  opacity: 1;\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  @media (min-width: 769px) {\n    .page-view-right-leave {\n      top: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-right-leave {\n      left: 20px; } }\n  .page-view-right-leave.page-view-right-leave-active {\n    opacity: 0; }\n    @media (min-width: 769px) {\n      .page-view-right-leave.page-view-right-leave-active {\n        top: calc( 200px + 20px); } }\n    @media (max-width: 768px) {\n      .page-view-right-leave.page-view-right-leave-active {\n        left: calc( 200px + 20px); } }\n", ""]);
+=======
+	exports.push([module.id, "h1, h2 {\n  font-family: \"Nixie One\", sans-serif !important;\n  margin-top: 0; }\n\nbody {\n  font-family: \"Work Sans\", sans-serif;\n  margin: 0 !important; }\n\n.app-content-container {\n  margin-left: 85px;\n  padding: 20px; }\n  .app-content-container span > * {\n    position: absolute; }\n    @media (max-width: 768px) {\n      .app-content-container span > * {\n        margin-bottom: 85px; } }\n  @media (max-width: 768px) {\n    .app-content-container {\n      margin-left: 0; } }\n\na {\n  text-decoration: none; }\n\n.nav {\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-color: rgba(0, 0, 0, 0.78);\n  width: 85px;\n  height: 100vh; }\n  .nav .nav-item-container {\n    height: 40vh;\n    max-height: 360px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between; }\n    @media (max-width: 768px) {\n      .nav .nav-item-container {\n        flex-direction: row;\n        height: calc(85px - 10px);\n        width: 40vw;\n        min-width: 270px;\n        align-items: baseline; } }\n  .nav .nav-item {\n    color: #fff;\n    fill: #fff;\n    transition: color .25s ease-out, fill .25s ease-out; }\n  .nav a.active .nav-item {\n    color: #d79600;\n    fill: #d79600; }\n  @media (max-width: 768px) {\n    .nav {\n      top: calc(100vh - 85px);\n      width: 100vw;\n      height: 85px;\n      flex-direction: row; } }\n\n.page-view-left-enter {\n  opacity: 0;\n  left: calc( calc(200px + 85px) + 20px);\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  .page-view-left-enter.page-view-left-enter-active {\n    opacity: 1;\n    left: calc(85px + 20px); }\n    @media (max-width: 768px) {\n      .page-view-left-enter.page-view-left-enter-active {\n        left: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-left-enter {\n      left: calc( 200px + 20px); } }\n\n.page-view-left-leave {\n  opacity: 1;\n  left: calc(85px + 20px);\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  @media (max-width: 768px) {\n    .page-view-left-leave {\n      left: 20px; } }\n  .page-view-left-leave.page-view-left-leave-active {\n    opacity: 0;\n    left: calc( calc(-200px - 85px) - 20px); }\n    @media (max-width: 768px) {\n      .page-view-left-leave.page-view-left-leave-active {\n        left: calc( -200px - 20px); } }\n\n.page-view-right-enter {\n  opacity: 0;\n  left: calc( calc(-200px - 85px) - 20px);\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  .page-view-right-enter.page-view-right-enter-active {\n    opacity: 1;\n    left: calc(85px + 20px); }\n    @media (max-width: 768px) {\n      .page-view-right-enter.page-view-right-enter-active {\n        left: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-right-enter {\n      left: calc( -200px - 20px); } }\n\n.page-view-right-leave {\n  opacity: 1;\n  left: calc(85px + 20px);\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  @media (max-width: 768px) {\n    .page-view-right-leave {\n      left: 20px; } }\n  .page-view-right-leave.page-view-right-leave-active {\n    opacity: 0;\n    left: calc( calc(200px + 85px) + 20px); }\n    @media (max-width: 768px) {\n      .page-view-right-leave.page-view-right-leave-active {\n        left: calc( 200px + 20px); } }\n", ""]);
+>>>>>>> searchPageBr
 
 	// exports
 
 
 /***/ },
+<<<<<<< HEAD
 /* 263 */
+=======
+/* 258 */
+>>>>>>> searchPageBr
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -28710,7 +29529,11 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 264 */
+=======
+/* 259 */
+>>>>>>> searchPageBr
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -28730,7 +29553,11 @@
 
 
 /***/ },
+<<<<<<< HEAD
 /* 265 */
+=======
+/* 260 */
+>>>>>>> searchPageBr
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);

@@ -8,12 +8,10 @@ import * as React from 'react';
 import * as DOM from 'react-dom';
 import { Router, Route, IndexRedirect, browserHistory, Link} from 'react-router';
 import * as TransitionGroup from 'react-addons-css-transition-group';
-
 //HANDLER IMPORTS
 import Search from './search-page.tsx';
 import Stores from './store-page.tsx';
 import Profile from './profile-page.tsx';
-import Signin from './sign-in.tsx';
 
 //STYLE IMPORTS
 import '../sass/main.scss';
@@ -54,6 +52,7 @@ let App = React.createClass({
     if ((path == "/app/search" && this.state.prevRoute == "/app/profile") || path == "/app/stores"){
       animation = "page-view-right";
     }
+	 console.log(path + '   ' + this.state.prevRoute);
     this.setState({prevRoute: path, animation: animation});
   },
   render() {
@@ -82,6 +81,7 @@ let App = React.createClass({
 
 //DEFINE ROUTES
 let routes = (
+<<<<<<< HEAD
     <Route key="root" path="/app" component={App}>
       <IndexRedirect to="/app/search"/>
       <Route key="search" path="/app/search" component={Search}/>
@@ -104,7 +104,6 @@ let routes = (
     </Route>
   </Route>
 );
-*/
 
 //RENDER APP
 DOM.render(<Router history={browserHistory}>{routes}</Router>, doc);

@@ -1,0 +1,31 @@
+@import "_variables.scss";
+
+.profile-header{
+  margin-bottom: 60px;
+}
+
+.profile-summary{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-pic{
+  background-color: $blue;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  margin-right: 20px;
+}
+
+.profile-name{
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.profile-counter-cluster{
+  margin-top: 40px;
+  display:flex;
+  align-items: flex-end;
+}

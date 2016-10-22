@@ -5,20 +5,29 @@ import * as React from 'react';
 //STYLE IMPORTS
 import '../sass/store-thumbnail.scss';
 
-var StoreThumbnail = React.createClass({
-  render: function() {
+interface StoreProps {
+  name: string;
+  location: string;
+  imgUrl: string;
+}
+
+class StoreThumbnail extends React.Component<StoreProps, {}>{
+  render() {
+    var boxBackground = {
+      backgroundImage: 'url(' + this.props.imgUrl +')'
+    }
     return(
-      <div className="store-thumbnail">
+      <div className="store-thumbnail" style={boxBackground}>
         <div className="store-thumbnail-name">
-          Fancy store name goes here.
+          {this.props.name}
         </div>
         <br/>
         <div className="store-thumbnail-location">
-          Fancy location goes here.
+          {this.props.location}
         </div>
       </div>
     )
   }
-});
+}
 
 export default StoreThumbnail;

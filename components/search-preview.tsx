@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 //STYLE IMPORTS
-import '../sass/search-preview.scss';
+import '../sass/SearchPreview.scss';
 
 interface SearchPreviewProps {
   imgUrl: string;
@@ -16,10 +16,9 @@ class SearchPreview extends React.Component<SearchPreviewProps,{}>{
       backgroundImage: 'url('+this.props.imgUrl+')'
     }
     return(
-     <div className="searchpreview-square-box" style={boxBackground}>
-          <br/>
-          <div className="searchpreview-text">{this.props.itemName}</div>
-     </div>
+        <div className="square-box" style={boxBackground}>
+          <div className="text">{this.props.itemName}</div>
+        </div>
     );
   }
 }

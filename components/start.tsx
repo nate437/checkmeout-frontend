@@ -96,7 +96,7 @@ let App = React.createClass({
 
 //DEFINE ROUTES
 let routes = (
-  <Route key="singin" path="/app/signin" component={BaseApp}>
+  <Route key="singin" path="/app" component={BaseApp}>
     <IndexRedirect to="/app/signin"/>
     <Route key="singin" path="/app/signin" component={Signin}/>
     <Route key="root" path="/app/a" component={App}>

@@ -5,6 +5,7 @@ import RoundButton from './round-button.tsx';
 import Counter from './counter.tsx';
 import { browserHistory } from 'react-router';
 import AppSession from './session.tsx'
+import SearchPreview from './search-preview.tsx'
 
 import '../sass/profile.scss';
 
@@ -42,6 +43,8 @@ class Profile extends React.Component<ProfileProps, {}>{
           </div>
         </div>
         <hr/>
+        <div className="profile-subsection-header">WATCHED ITEMS</div>
+        <div className="profile-subsection-header">CHECKED OUT ITEMS</div>
       </div>
     )
   }

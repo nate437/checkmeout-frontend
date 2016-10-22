@@ -17,7 +17,6 @@ class SearchPreview extends React.Component<SearchPreviewProps,{}>{
     }
     return(
      <div className="searchpreview-square-box" style={boxBackground}>
-          <br/>
           <div className="searchpreview-text">{this.props.itemName}</div>
      </div>
     );

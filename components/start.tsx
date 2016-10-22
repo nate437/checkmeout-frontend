@@ -58,7 +58,7 @@ let BaseApp = React.createClass({
 //CREATE NAV BAR
 let App = React.createClass({
   getInitialState () {
-    return { prevRoute: '', animation: 'page-view-left'}
+    return { prevRoute: '/app/a/profile', animation: 'page-view-left'}
   },
   componentWillReceiveProps(nextProps:any){
     var path = nextProps.location.pathname;
@@ -92,7 +92,6 @@ let App = React.createClass({
     );
   }
 });
-
 
 //DEFINE ROUTES
 let routes = (

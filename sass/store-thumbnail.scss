@@ -2,13 +2,14 @@
 
 .store-thumbnail{
   margin: 20px 0px;
-  background-color: yellow;
+  background-color: $blue;
   height: 150px;
   background-size: cover;
+  background-position: center;
 }
 
 .store-thumbnail-name, .store-thumbnail-location {
-  margin: 4px;
+  margin: 2px 4px;
   background-color: $transBlack;
   color: $white;
   display: inline-block;
@@ -17,7 +18,7 @@
 
 .store-thumbnail-name {
   font-size: 18px;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .store-thumbnail-location {

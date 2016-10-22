@@ -9,11 +9,7 @@ import AppSession from './session.tsx'
 
 import '../sass/signin.scss';
 
-interface SigninProps {
-
-}
-
-class Signin extends React.Component<SigninProps,{}>{
+class Signin extends React.Component<{},{}>{
 
   private onSignIn(googleUser:any) {
       AppSession.updateUser(googleUser.getBasicProfile()); // plus any other logic here

@@ -48,6 +48,7 @@
 	/// <reference path="../typing/react.d.ts"/>
 	/// <reference path="../typing/react-router.d.ts"/>
 	/// <reference path="../typing/react-addons-css-transition-group.d.ts" />
+	/// <reference path="../typing/gapi.auth2.d.ts"/>
 	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -63,12 +64,13 @@
 	var search_page_tsx_1 = __webpack_require__(242);
 	var store_page_tsx_1 = __webpack_require__(248);
 	var profile_page_tsx_1 = __webpack_require__(252);
+	var sign_in_tsx_1 = __webpack_require__(262);
 	//STYLE IMPORTS
-	__webpack_require__(261);
+	__webpack_require__(265);
 	var doc = document.getElementById('app');
-	var StoreIcon = __webpack_require__(263);
-	var SearchIcon = __webpack_require__(264);
-	var ProfileIcon = __webpack_require__(265);
+	var StoreIcon = __webpack_require__(267);
+	var SearchIcon = __webpack_require__(268);
+	var ProfileIcon = __webpack_require__(269);
 	var NavItem = (function (_super) {
 	    __extends(NavItem, _super);
 	    function NavItem() {
@@ -80,6 +82,12 @@
 	    };
 	    return NavItem;
 	}(React.Component));
+	//CREATE BASE APP
+	var BaseApp = React.createClass({
+	    render: function () {
+	        return (React.createElement("div", null, this.props.children));
+	    }
+	});
 	//CREATE NAV BAR
 	var App = React.createClass({
 	    getInitialState: function () {
@@ -88,7 +96,7 @@
 	    componentWillReceiveProps: function (nextProps) {
 	        var path = nextProps.location.pathname;
 	        var animation = "page-view-left";
-	        if ((path == "/app/search" && this.state.prevRoute == "/app/profile") || path == "/app/stores") {
+	        if ((path == "/app/a/search" && this.state.prevRoute == "/app/a/profile") || path == "/app/a/stores") {
 	            animation = "page-view-right";
 	        }
 	        this.setState({ prevRoute: path, animation: animation });
@@ -96,26 +104,11 @@
 	    render: function () {
 	        var path = this.props.location.pathname;
 	        var segment = path.split('/')[2] || 'root';
-	        return (React.createElement("div", {className: "app-container"}, React.createElement("div", {className: "nav"}, React.createElement("div", {className: "nav-item-container"}, React.createElement(react_router_1.Link, {to: "/app/stores", activeClassName: "active"}, React.createElement(NavItem, {title: "stores", icon: StoreIcon})), React.createElement(react_router_1.Link, {to: "/app/search", activeClassName: "active"}, React.createElement(NavItem, {title: "search", icon: SearchIcon})), React.createElement(react_router_1.Link, {to: "/app/profile", activeClassName: "active"}, React.createElement(NavItem, {title: "profile", icon: ProfileIcon})))), React.createElement("div", {className: "app-content-container"}, React.createElement(TransitionGroup, {transitionName: this.state.animation, transitionEnterTimeout: 500, transitionLeaveTimeout: 500}, React.cloneElement(this.props.children, { key: path })))));
+	        return (React.createElement("div", {className: "app-container"}, React.createElement("div", {className: "nav"}, React.createElement("div", {className: "nav-item-container"}, React.createElement(react_router_1.Link, {to: "/app/a/stores", activeClassName: "active"}, React.createElement(NavItem, {title: "stores", icon: StoreIcon})), React.createElement(react_router_1.Link, {to: "/app/a/search", activeClassName: "active"}, React.createElement(NavItem, {title: "search", icon: SearchIcon})), React.createElement(react_router_1.Link, {to: "/app/a/profile", activeClassName: "active"}, React.createElement(NavItem, {title: "profile", icon: ProfileIcon})))), React.createElement("div", {className: "app-content-container"}, React.createElement(TransitionGroup, {transitionName: this.state.animation, transitionEnterTimeout: 500, transitionLeaveTimeout: 500}, React.cloneElement(this.props.children, { key: path })))));
 	    }
 	});
 	//DEFINE ROUTES
-	var routes = (React.createElement(react_router_1.Route, {key: "root", path: "/app", component: App}, React.createElement(react_router_1.IndexRedirect, {to: "/app/search"}), React.createElement(react_router_1.Route, {key: "search", path: "/app/search", component: search_page_tsx_1.default}), React.createElement(react_router_1.Route, {key: "stores", path: "/app/stores", component: store_page_tsx_1.default}), React.createElement(react_router_1.Route, {key: "profile", path: "/app/profile", component: profile_page_tsx_1.default})));
-	/*
-	//DEFINE ROUTES
-	let routes = (
-	  <Route key="singin" path="/app/signin" component={Signin}>
-	    <IndexRedirect to="/app/signin"/>
-	    <Route key="singin" path="/app/signin" component={Signin}/>
-	    <Route key="root" path="/app" component={App}>
-	      <IndexRedirect to="/app/search"/>
-	      <Route key="search" path="/app/search" component={Search}/>
-	      <Route key="stores" path="/app/stores" component={Stores}/>
-	      <Route key="profile" path="/app/profile" component={Profile}/>
-	    </Route>
-	  </Route>
-	);
-	*/
+	var routes = (React.createElement(react_router_1.Route, {key: "singin", path: "/app/", component: BaseApp}, React.createElement(react_router_1.IndexRedirect, {to: "/app/signin"}), React.createElement(react_router_1.Route, {key: "singin", path: "/app/signin", component: sign_in_tsx_1.default}), React.createElement(react_router_1.Route, {key: "root", path: "/app/a", component: App}, React.createElement(react_router_1.IndexRedirect, {to: "/app/a/profile"}), React.createElement(react_router_1.Route, {key: "search", path: "/app/a/search", component: search_page_tsx_1.default}), React.createElement(react_router_1.Route, {key: "stores", path: "/app/a/stores", component: store_page_tsx_1.default}), React.createElement(react_router_1.Route, {key: "profile", path: "/app/a/profile", component: profile_page_tsx_1.default}))));
 	//RENDER APP
 	DOM.render(React.createElement(react_router_1.Router, {history: react_router_1.browserHistory}, routes), doc);
 
@@ -28460,14 +28453,25 @@
 	var React = __webpack_require__(1);
 	var round_button_tsx_1 = __webpack_require__(253);
 	var counter_tsx_1 = __webpack_require__(256);
-	__webpack_require__(259);
+	var react_router_1 = __webpack_require__(172);
+	var session_tsx_1 = __webpack_require__(259);
+	__webpack_require__(260);
 	var Profile = (function (_super) {
 	    __extends(Profile, _super);
 	    function Profile() {
 	        _super.apply(this, arguments);
 	    }
+	    Profile.prototype.signOut = function () {
+	        var auth2 = gapi.auth2.getAuthInstance();
+	        auth2.signOut().then(function () {
+	            react_router_1.browserHistory.push('/app/signin');
+	        });
+	    };
 	    Profile.prototype.render = function () {
-	        return (React.createElement("div", null, React.createElement("div", {className: "profile-header"}, React.createElement("h1", {style: { float: 'left' }}, "My Profile "), React.createElement(round_button_tsx_1.default, {style: { float: 'right' }, text: "sign out", action: function () { alert('sign out'); }})), React.createElement("div", {className: "profile-summary"}, React.createElement("div", {className: "profile-pic"}), React.createElement("div", null, React.createElement("div", {className: "profile-name"}, "FName LName"), React.createElement("div", {className: "profile-email"}, "email@domain.com"), React.createElement("div", {className: "profile-counter-cluster"}, React.createElement(counter_tsx_1.default, {count: 3, itemName: "item", stateDesc: "checked out"}), React.createElement(counter_tsx_1.default, {count: 1, itemName: "item", stateDesc: "over due"})))), React.createElement("hr", null)));
+	        var profilePicStyle = {
+	            backgroundImage: "url('" + session_tsx_1.default['user'].getImageUrl() + "?sz=150')"
+	        };
+	        return (React.createElement("div", null, React.createElement("div", {className: "profile-header"}, React.createElement("h1", {style: { float: 'left' }}, "My Profile "), React.createElement(round_button_tsx_1.default, {style: { float: 'right' }, text: "sign out", action: this.signOut})), React.createElement("div", {className: "profile-summary"}, React.createElement("div", {style: profilePicStyle, className: "profile-pic"}), React.createElement("div", null, React.createElement("div", {className: "profile-name"}, session_tsx_1.default['user'].getName()), React.createElement("div", {className: "profile-email"}, session_tsx_1.default['user'].getEmail()), React.createElement("div", {className: "profile-counter-cluster"}, React.createElement(counter_tsx_1.default, {count: 3, itemName: "item", stateDesc: "checked out"}), React.createElement(counter_tsx_1.default, {count: 1, itemName: "item", stateDesc: "over due"})))), React.createElement("hr", null)));
 	    };
 	    return Profile;
 	}(React.Component));
@@ -28537,7 +28541,7 @@
 
 
 	// module
-	exports.push([module.id, ".round-button {\n  display: inline;\n  background-color: #d79600;\n  color: #fff;\n  padding: 10px 15px;\n  border-radius: 20px; }\n", ""]);
+	exports.push([module.id, ".round-button {\n  display: inline;\n  background-color: #d79600;\n  color: #fff;\n  border: 1px solid #fff;\n  padding: 10px 15px;\n  border-radius: 21px;\n  cursor: pointer; }\n\n.round-button:hover {\n  background-color: #fff;\n  color: #d79600;\n  border: 1px solid #d79600; }\n", ""]);
 
 	// exports
 
@@ -28611,12 +28615,32 @@
 
 /***/ },
 /* 259 */
+/***/ function(module, exports) {
+
+	/// <reference path="../typing/gapi.auth2.d.ts"/>
+	"use strict";
+	var Session = (function () {
+	    function Session() {
+	    }
+	    Session.prototype.updateUser = function (newUser) {
+	        this['user'] = newUser;
+	    };
+	    ;
+	    return Session;
+	}());
+	var AppSession = new Session;
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = AppSession;
+
+
+/***/ },
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(260);
+	var content = __webpack_require__(261);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(247)(content, {});
@@ -28636,7 +28660,7 @@
 	}
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(246)();
@@ -28650,13 +28674,99 @@
 
 
 /***/ },
-/* 261 */
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/// <reference path="../typing/jquery.d.ts"/>
+	/// <reference path="../typing/react.d.ts"/>
+	/// <reference path="../typing/gapi.auth2.d.ts"/>
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var React = __webpack_require__(1);
+	var react_router_1 = __webpack_require__(172);
+	var session_tsx_1 = __webpack_require__(259);
+	__webpack_require__(263);
+	var Signin = (function (_super) {
+	    __extends(Signin, _super);
+	    function Signin() {
+	        _super.apply(this, arguments);
+	    }
+	    Signin.prototype.onSignIn = function (googleUser) {
+	        session_tsx_1.default.updateUser(googleUser.getBasicProfile()); // plus any other logic here
+	        react_router_1.browserHistory.push('/app/a');
+	    };
+	    Signin.prototype.componentDidMount = function () {
+	        // execute any gapi calls here...
+	        gapi.signin2.render('g-signin2', {
+	            'scope': 'https://www.googleapis.com/auth/plus.login',
+	            'width': 200,
+	            'height': 50,
+	            'longtitle': true,
+	            'theme': 'light',
+	            'onsuccess': this.onSignIn
+	        });
+	    };
+	    Signin.prototype.render = function () {
+	        return (React.createElement("div", {style: { backgroundImage: "url('../images/background.svg')" }, className: "signin-bg"}, React.createElement("img", {className: "signin-logo", src: "../images/logo.svg"}), React.createElement("div", {className: "signin-desc"}, "Check Me Out is an easy-to-use, internet conntected self-checkout system designed for resource tracking."), React.createElement("div", {id: "g-signin2"})));
+	    };
+	    return Signin;
+	}(React.Component));
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Signin;
+
+
+/***/ },
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(262);
+	var content = __webpack_require__(264);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(247)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./signin.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./signin.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(246)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "@keyframes backgroundScroll {\n  from {\n    background-position: 0px center; }\n  to {\n    background-position: 59.45vh center; } }\n\n.signin-bg {\n  background-size: auto 100vh;\n  background-repeat: repeat-x;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  animation: backgroundScroll 30s linear infinite; }\n\n.signin-logo {\n  width: 300px; }\n\n.signin-desc {\n  text-align: center;\n  padding: 50px;\n  max-width: 350px; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(266);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(247)(content, {});
@@ -28676,7 +28786,7 @@
 	}
 
 /***/ },
-/* 262 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(246)();
@@ -28684,13 +28794,13 @@
 
 
 	// module
-	exports.push([module.id, "h1, h2 {\n  font-family: \"Nixie One\", sans-serif !important;\n  margin-top: 0; }\n\nbody {\n  font-family: \"Work Sans\", sans-serif;\n  margin: 0 !important;\n  overflow-x: hidden; }\n\n::-webkit-scrollbar {\n  height: 0;\n  overflow: visible;\n  width: 7px;\n  background-color: transparent; }\n\n::-webkit-scrollbar-thumb {\n  background-color: rgba(0, 0, 0, 0.5);\n  background-clip: padding-box;\n  min-height: 28px;\n  padding: 100px 0 0;\n  border-radius: 7px; }\n\n::-webkit-scrollbar-button {\n  height: 0;\n  width: 0; }\n\n::-webkit-scrollbar-track {\n  background-clip: padding-box;\n  border: solid transparent;\n  border-width: 0 0 0 4px; }\n\n::-webkit-scrollbar-corner {\n  background: transparent; }\n\n.app-content-container {\n  position: relative;\n  z-index: 1;\n  margin-left: 85px;\n  padding: 20px; }\n  .app-content-container span > * {\n    position: absolute;\n    width: calc(calc(100vw - (2*20px) - 85px)); }\n    @media (max-width: 768px) {\n      .app-content-container span > * {\n        width: calc(100vw - (2*20px));\n        margin-bottom: 85px; } }\n  @media (max-width: 768px) {\n    .app-content-container {\n      margin-left: 0; } }\n\na {\n  text-decoration: none; }\n\n.nav {\n  position: fixed;\n  z-index: 20;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-color: rgba(0, 0, 0, 0.78);\n  width: 85px;\n  height: 100vh; }\n  .nav .nav-item-container {\n    height: 40vh;\n    max-height: 360px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between; }\n    @media (max-width: 768px) {\n      .nav .nav-item-container {\n        flex-direction: row;\n        height: calc(85px - 10px);\n        width: 40vw;\n        min-width: 270px;\n        align-items: baseline; } }\n  .nav .nav-item {\n    color: #fff;\n    fill: #fff;\n    transition: color .25s ease-out, fill .25s ease-out; }\n  .nav a.active .nav-item {\n    color: #d79600;\n    fill: #d79600; }\n  @media (max-width: 768px) {\n    .nav {\n      top: calc(100vh - 85px);\n      width: 100vw;\n      height: 85px;\n      flex-direction: row; } }\n\n.page-view-left-enter {\n  opacity: 0;\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  .page-view-left-enter.page-view-left-enter-active {\n    opacity: 1; }\n    @media (min-width: 769px) {\n      .page-view-left-enter.page-view-left-enter-active {\n        top: 20px; } }\n    @media (max-width: 768px) {\n      .page-view-left-enter.page-view-left-enter-active {\n        left: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-left-enter {\n      left: calc( 200px + 20px); } }\n  @media (min-width: 769px) {\n    .page-view-left-enter {\n      top: calc( 200px + 20px); } }\n\n.page-view-left-leave {\n  opacity: 1;\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  @media (min-width: 769px) {\n    .page-view-left-leave {\n      top: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-left-leave {\n      left: 20px; } }\n  .page-view-left-leave.page-view-left-leave-active {\n    opacity: 0; }\n    @media (min-width: 769px) {\n      .page-view-left-leave.page-view-left-leave-active {\n        top: calc( -200px - 20px); } }\n    @media (max-width: 768px) {\n      .page-view-left-leave.page-view-left-leave-active {\n        left: calc( -200px - 20px); } }\n\n.page-view-right-enter {\n  opacity: 0;\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  .page-view-right-enter.page-view-right-enter-active {\n    opacity: 1; }\n    @media (min-width: 769px) {\n      .page-view-right-enter.page-view-right-enter-active {\n        top: 20px; } }\n    @media (max-width: 768px) {\n      .page-view-right-enter.page-view-right-enter-active {\n        left: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-right-enter {\n      left: calc( -200px - 20px); } }\n  @media (min-width: 769px) {\n    .page-view-right-enter {\n      top: calc( -200px - 20px); } }\n\n.page-view-right-leave {\n  opacity: 1;\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  @media (min-width: 769px) {\n    .page-view-right-leave {\n      top: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-right-leave {\n      left: 20px; } }\n  .page-view-right-leave.page-view-right-leave-active {\n    opacity: 0; }\n    @media (min-width: 769px) {\n      .page-view-right-leave.page-view-right-leave-active {\n        top: calc( 200px + 20px); } }\n    @media (max-width: 768px) {\n      .page-view-right-leave.page-view-right-leave-active {\n        left: calc( 200px + 20px); } }\n", ""]);
+	exports.push([module.id, "h1, h2 {\n  font-family: \"Nixie One\", sans-serif !important;\n  margin-top: 0; }\n\nbody {\n  font-family: \"Work Sans\", sans-serif;\n  margin: 0 !important;\n  overflow-x: hidden; }\n\n::-webkit-scrollbar {\n  height: 0;\n  overflow: visible;\n  width: 7px;\n  background-color: transparent; }\n\n::-webkit-scrollbar-thumb {\n  background-color: rgba(0, 0, 0, 0.5);\n  background-clip: padding-box;\n  min-height: 28px;\n  padding: 100px 0 0;\n  border-radius: 7px; }\n\n::-webkit-scrollbar-button {\n  height: 0;\n  width: 0; }\n\n::-webkit-scrollbar-track {\n  background-clip: padding-box;\n  border: solid transparent;\n  border-width: 0 0 0 4px; }\n\n::-webkit-scrollbar-corner {\n  background: transparent; }\n\n.app-content-container {\n  position: relative;\n  z-index: 1;\n  margin-left: 85px;\n  padding: 20px; }\n  .app-content-container span > * {\n    position: absolute;\n    width: calc(calc(100vw - (2*20px) - 85px)); }\n    @media (max-width: 768px) {\n      .app-content-container span > * {\n        width: calc(100vw - (2*20px));\n        margin-bottom: 85px; } }\n  @media (max-width: 768px) {\n    .app-content-container {\n      margin-left: 0; } }\n\na {\n  text-decoration: none; }\n\n.nav {\n  position: fixed;\n  z-index: 20;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  background-color: rgba(0, 0, 0, 0.78);\n  width: 85px;\n  height: 100vh; }\n  .nav .nav-item-container {\n    height: 40vh;\n    max-height: 360px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between; }\n    @media (max-width: 768px) {\n      .nav .nav-item-container {\n        flex-direction: row;\n        height: calc(85px - 10px);\n        width: 40vw;\n        min-width: 270px;\n        align-items: baseline; } }\n  .nav .nav-item {\n    color: #fff;\n    fill: #fff;\n    transition: color .25s ease-out, fill .25s ease-out; }\n  .nav a.active .nav-item {\n    color: #d79600;\n    fill: #d79600; }\n  @media (max-width: 768px) {\n    .nav {\n      top: calc(100vh - 85px);\n      width: 100vw;\n      height: 85px;\n      flex-direction: row; } }\n\n.page-view-left-enter {\n  opacity: 0;\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  .page-view-left-enter.page-view-left-enter-active {\n    opacity: 1; }\n    @media (min-width: 769px) {\n      .page-view-left-enter.page-view-left-enter-active {\n        top: 20px; } }\n    @media (max-width: 768px) {\n      .page-view-left-enter.page-view-left-enter-active {\n        left: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-left-enter {\n      left: calc( 200px + 20px); } }\n  @media (min-width: 769px) {\n    .page-view-left-enter {\n      top: calc( 200px + 20px); } }\n\n.page-view-left-leave {\n  opacity: 1;\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  @media (min-width: 769px) {\n    .page-view-left-leave {\n      top: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-left-leave {\n      left: 20px; } }\n  .page-view-left-leave.page-view-left-leave-active {\n    opacity: 0; }\n    @media (min-width: 769px) {\n      .page-view-left-leave.page-view-left-leave-active {\n        top: calc( -200px - 20px); } }\n    @media (max-width: 768px) {\n      .page-view-left-leave.page-view-left-leave-active {\n        left: calc( -200px - 20px); } }\n\n.page-view-right-enter {\n  opacity: 0;\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  .page-view-right-enter.page-view-right-enter-active {\n    opacity: 1; }\n    @media (min-width: 769px) {\n      .page-view-right-enter.page-view-right-enter-active {\n        top: 20px; } }\n    @media (max-width: 768px) {\n      .page-view-right-enter.page-view-right-enter-active {\n        left: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-right-enter {\n      left: calc( -200px - 20px); } }\n  @media (min-width: 769px) {\n    .page-view-right-enter {\n      top: calc( -200px - 20px); } }\n\n.page-view-right-leave {\n  opacity: 1;\n  transition: all 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  @media (min-width: 769px) {\n    .page-view-right-leave {\n      top: 20px; } }\n  @media (max-width: 768px) {\n    .page-view-right-leave {\n      left: 20px; } }\n  .page-view-right-leave.page-view-right-leave-active {\n    opacity: 0; }\n    @media (min-width: 769px) {\n      .page-view-right-leave.page-view-right-leave-active {\n        top: calc( 200px + 20px); } }\n    @media (max-width: 768px) {\n      .page-view-right-leave.page-view-right-leave-active {\n        left: calc( 200px + 20px); } }\n\n.fade-enter {\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  opacity: 0;\n  transition: opacity 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  .fade-enter.fade-enter-active {\n    opacity: 1; }\n\n.fade-leave {\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  opacity: 1;\n  transition: opacity 0.5s cubic-bezier(0.12, 0.85, 0.2, 0.94); }\n  .fade-leave.fade-leave-active {\n    opacity: 0; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 263 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -28710,7 +28820,7 @@
 
 
 /***/ },
-/* 264 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -28730,7 +28840,7 @@
 
 
 /***/ },
-/* 265 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);

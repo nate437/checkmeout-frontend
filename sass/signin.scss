@@ -1,17 +1,27 @@
 @import "_variables.scss";
+
+@keyframes backgroundScroll {
+  from{
+    background-position: 0px center;
+  }
+  to{
+    background-position: 59.45vh center;
+  }
+}
+
 .signin-bg{
   background-size: auto 100vh;
   background-repeat: repeat-x;
-  background-position-x: center;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;;
+  align-items: center;
+  animation: backgroundScroll 30s linear infinite;
 }
 
 .signin-logo{
-  width: 250px;
+  width: 300px;
 }
 
 .signin-desc{

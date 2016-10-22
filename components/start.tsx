@@ -2,6 +2,7 @@
 /// <reference path="../typing/react.d.ts"/>
 /// <reference path="../typing/react-router.d.ts"/>
 /// <reference path="../typing/react-addons-css-transition-group.d.ts" />
+/// <reference path="../typing/gapi.auth2.d.ts"/>
 
 //BASE LEVEL IMPORTS
 import * as React from 'react';
@@ -14,6 +15,7 @@ import Search from './search-page.tsx';
 import Stores from './store-page.tsx';
 import Profile from './profile-page.tsx';
 import Signin from './sign-in.tsx';
+import AppSession from './session.tsx';
 
 //STYLE IMPORTS
 import '../sass/main.scss';
@@ -43,6 +45,17 @@ class NavItem extends React.Component<NavProps, {}>{
   }
 }
 
+//CREATE BASE APP
+let BaseApp = React.createClass({
+  render() {
+    return(
+      <div>
+        {this.props.children}
+      </div>
+    );
+  }
+})
+
 //CREATE NAV BAR
 let App = React.createClass({
   getInitialState () {
@@ -51,7 +64,7 @@ let App = React.createClass({
   componentWillReceiveProps(nextProps:any){
     var path = nextProps.location.pathname;
     var animation = "page-view-left";
-    if ((path == "/app/search" && this.state.prevRoute == "/app/profile") || path == "/app/stores"){
+    if ((path == "/app/a/search" && this.state.prevRoute == "/app/a/profile") || path == "/app/a/stores"){
       animation = "page-view-right";
     }
     this.setState({prevRoute: path, animation: animation});
@@ -63,9 +76,9 @@ let App = React.createClass({
       <div className="app-container">
         <div className="nav">
           <div className="nav-item-container">
-            <Link to="/app/stores" activeClassName="active"><NavItem title="stores" icon={StoreIcon} /></Link>
-            <Link to="/app/search" activeClassName="active"><NavItem title="search" icon={SearchIcon} /></Link>
-            <Link to="/app/profile" activeClassName="active"><NavItem title="profile" icon={ProfileIcon}/></Link>
+            <Link to="/app/a/stores" activeClassName="active"><NavItem title="stores" icon={StoreIcon} /></Link>
+            <Link to="/app/a/search" activeClassName="active"><NavItem title="search" icon={SearchIcon} /></Link>
+            <Link to="/app/a/profile" activeClassName="active"><NavItem title="profile" icon={ProfileIcon}/></Link>
           </div>
         </div>
         <div className="app-content-container">
@@ -82,29 +95,18 @@ let App = React.createClass({
 
 //DEFINE ROUTES
 let routes = (
-    <Route key="root" path="/app" component={App}>
-      <IndexRedirect to="/app/search"/>
-      <Route key="search" path="/app/search" component={Search}/>
-      <Route key="stores" path="/app/stores" component={Stores}/>
-      <Route key="profile" path="/app/profile" component={Profile}/>
-    </Route>
-);
-
-/*
-//DEFINE ROUTES
-let routes = (
-  <Route key="singin" path="/app/signin" component={Signin}>
+  <Route key="singin" path="/app/" component={BaseApp}>
     <IndexRedirect to="/app/signin"/>
     <Route key="singin" path="/app/signin" component={Signin}/>
-    <Route key="root" path="/app" component={App}>
-      <IndexRedirect to="/app/search"/>
-      <Route key="search" path="/app/search" component={Search}/>
-      <Route key="stores" path="/app/stores" component={Stores}/>
-      <Route key="profile" path="/app/profile" component={Profile}/>
+    <Route key="root" path="/app/a" component={App}>
+      <IndexRedirect to="/app/a/profile"/>
+      <Route key="search" path="/app/a/search" component={Search}/>
+      <Route key="stores" path="/app/a/stores" component={Stores}/>
+      <Route key="profile" path="/app/a/profile" component={Profile}/>
     </Route>
   </Route>
 );
-*/
+
 
 //RENDER APP
 DOM.render(<Router history={browserHistory}>{routes}</Router>, doc);

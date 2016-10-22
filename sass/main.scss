@@ -194,3 +194,25 @@ a{
   }
 
 }
+
+.fade-enter{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  &.fade-enter-active{
+    opacity: 1;
+  }
+}
+
+.fade-leave{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  transition: opacity $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  &.fade-leave-active{
+    opacity: 0;
+  }
+}

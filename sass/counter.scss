@@ -1,0 +1,18 @@
+@import "_variables.scss";
+
+.counter-container{
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.counter-number{
+  font-weight: 300;
+  font-size: 50px;
+}
+
+.counter-descriptor{
+  font-size: 10px;
+  word-wrap: normal;
+  max-width: 40px;
+}

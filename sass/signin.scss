@@ -1,0 +1,21 @@
+@import "_variables.scss";
+.signin-bg{
+  background-size: auto 100vh;
+  background-repeat: repeat-x;
+  background-position-x: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;;
+}
+
+.signin-logo{
+  width: 250px;
+}
+
+.signin-desc{
+  text-align: center;
+  padding: 50px;
+  max-width: 350px;
+}

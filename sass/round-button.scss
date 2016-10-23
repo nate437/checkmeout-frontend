@@ -1,0 +1,9 @@
+@import "_variables.scss";
+
+.round-button{
+  display: inline;
+  background-color: $orange;
+  color: $white;
+  padding: 10px 15px;
+  border-radius: 20px;
+}

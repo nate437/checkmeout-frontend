@@ -6,6 +6,9 @@ import * as DOM from 'react-dom';
 import RoundButton from './round-button.tsx';
 import StoreThumbnail from './store-thumbnail.tsx';
 
+//STYLE IMPORTS
+import '../sass/store-thumbnail.scss';
+
 interface StoreState{
   data:string[];
 }
@@ -33,16 +36,17 @@ class Stores extends React.Component<{}, StoreState>{
     return(
       <div>
         <div className="view-header">
-        <h1 style={{float: 'left'}}>My Stores </h1>
-        <RoundButton style={{float: 'right'}} text="add stores" action={function(){}}/>
+          <h1 style={{float: 'left'}}>My Stores </h1>
+          <RoundButton style={{float: 'right'}} text="add stores" action={function(){}}/>
         </div>
 
         <div>
           <StoreThumbnail name={data[0].name} location={data[0].location} imgUrl={data[0].img_url} />
         </div>
 
-        <div>
-
+        <div className='stores-footer'>
+          <div> That's all folks! </div>
+          <div> Use the 'add stores' button above to add more stores</div>
         </div>
       </div>
     )

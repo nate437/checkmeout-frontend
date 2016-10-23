@@ -1,13 +1,14 @@
 @import "variables";
 
-.square-box {
+.searchpreview-square-box {
     border:5px solid $blue;
     background-color: $white;
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: 150px;
+    background-size: cover;
 }
 
-.text{
+.searchpreview-text{
     background-color: $transBlack;
     color: $white;
     padding: 2px 4px;

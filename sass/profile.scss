@@ -1,8 +1,5 @@
-@import "_variables.scss";
 
-.profile-header{
-  margin-bottom: 60px;
-}
+@import "_variables.scss";
 
 .profile-summary{
   display: flex;
@@ -28,4 +25,9 @@
   margin-top: 40px;
   display:flex;
   align-items: flex-end;
+}
+
+.profile-subsection-header{
+  text-transform: uppercase;
+  color: $transBlack;
 }

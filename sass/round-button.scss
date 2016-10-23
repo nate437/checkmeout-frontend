@@ -1,9 +1,18 @@
+
 @import "_variables.scss";
 
 .round-button{
   display: inline;
   background-color: $orange;
   color: $white;
+  border: 1px solid $white;
   padding: 10px 15px;
-  border-radius: 20px;
+  border-radius: 21px;
+  cursor: pointer;
+}
+
+.round-button:hover{
+  background-color: $white;
+  color: $orange;
+  border: 1px solid $orange;
 }

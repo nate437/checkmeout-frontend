@@ -9,17 +9,51 @@ h1, h2{
 body{
   font-family: $bodyFont;
   margin: 0 !important;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  height: 0;
+  overflow: visible;
+  width: 7px;
+  background-color: rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .5);
+  background-clip: padding-box;
+  min-height: 28px;
+  padding: 100px 0 0;
+  border-radius: 7px;
+}
+::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+::-webkit-scrollbar-track {
+  background-clip: padding-box;
+  border: solid transparent;
+  border-width: 0 0 0 4px;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 .app-content-container{
+  position: relative;
+  z-index: 1;
   margin-left: $navThickness;
   padding: $appContainerPad;
   & span>*{
     position: absolute;
+    width: calc(calc(100vw - (2*#{$appContainerPad}) - #{$navThickness}));
+
     @media (max-width: $breakBar) {
+      width: calc(100vw - (2*#{$appContainerPad}));
       margin-bottom: $navThickness;
     }
+
   }
+
   @media (max-width: $breakBar) {
     margin-left: 0;
   }
@@ -28,9 +62,15 @@ body{
 a{
   text-decoration: none;
 }
+
+.view-header{
+  margin-bottom: 60px;
+}
+
 //Nav
 .nav{
   position: fixed;
+  z-index: 20;
   top:0;
   left:0;
   display: flex;
@@ -79,11 +119,12 @@ a{
 //Transitions
 .page-view-left-enter {
   opacity: 0;
-  left: calc( calc(#{$animationOffset} + #{$navThickness}) + #{$appContainerPad});
   transition: all $transitionDuration cubic-bezier(.12,.85,.2,.94);
   &.page-view-left-enter-active {
     opacity: 1;
-    left: calc(#{$navThickness} + #{$appContainerPad});
+    @media (min-width: $breakBar + 1px) {
+      top: $appContainerPad;
+    }
     @media (max-width: $breakBar) {
       left: $appContainerPad;
     }
@@ -91,18 +132,25 @@ a{
   @media (max-width: $breakBar) {
     left: calc( #{$animationOffset} + #{$appContainerPad});
   }
+  @media (min-width: $breakBar + 1px) {
+    top: calc( #{$animationOffset} + #{$appContainerPad});
+  }
 }
 
 .page-view-left-leave {
   opacity: 1;
-  left: calc(#{$navThickness} + #{$appContainerPad});
+  @media (min-width: $breakBar + 1px) {
+    top: $appContainerPad;
+  }
   @media (max-width: $breakBar) {
     left: $appContainerPad;
   }
   transition: all $transitionDuration cubic-bezier(.12,.85,.2,.94);
   &.page-view-left-leave-active {
     opacity: 0;
-    left: calc( calc(-#{$animationOffset} - #{$navThickness}) - #{$appContainerPad});
+    @media (min-width: $breakBar + 1px) {
+      top: calc( -#{$animationOffset} - #{$appContainerPad});
+    }
     @media (max-width: $breakBar) {
       left: calc( -#{$animationOffset} - #{$appContainerPad});
     }
@@ -112,11 +160,12 @@ a{
 
 .page-view-right-enter {
   opacity: 0;
-  left: calc( calc(-#{$animationOffset} - #{$navThickness}) - #{$appContainerPad});
   transition: all $transitionDuration cubic-bezier(.12,.85,.2,.94);
   &.page-view-right-enter-active {
     opacity: 1;
-    left: calc(#{$navThickness} + #{$appContainerPad});
+    @media (min-width: $breakBar + 1px) {
+      top: $appContainerPad;
+    }
     @media (max-width: $breakBar) {
       left: $appContainerPad;
     }
@@ -124,21 +173,50 @@ a{
   @media (max-width: $breakBar) {
     left: calc( -#{$animationOffset} - #{$appContainerPad});
   }
+  @media (min-width: $breakBar + 1px) {
+    top: calc( -#{$animationOffset} - #{$appContainerPad});
+  }
 }
 
 .page-view-right-leave {
   opacity: 1;
-  left: calc(#{$navThickness} + #{$appContainerPad});
+  @media (min-width: $breakBar + 1px) {
+    top: $appContainerPad;
+  }
   @media (max-width: $breakBar) {
     left: $appContainerPad;
   }
   transition: all $transitionDuration cubic-bezier(.12,.85,.2,.94);
   &.page-view-right-leave-active {
     opacity: 0;
-    left: calc( calc(#{$animationOffset} + #{$navThickness}) + #{$appContainerPad});
+    @media (min-width: $breakBar + 1px) {
+      top: calc( #{$animationOffset} + #{$appContainerPad});
+    }
     @media (max-width: $breakBar) {
       left: calc( #{$animationOffset} + #{$appContainerPad});
     }
   }
 
+}
+
+.fade-enter{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  &.fade-enter-active{
+    opacity: 1;
+  }
+}
+
+.fade-leave{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  transition: opacity $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  &.fade-leave-active{
+    opacity: 0;
+  }
 }

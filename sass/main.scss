@@ -49,9 +49,8 @@ body{
 
     @media (max-width: $breakBar) {
       width: calc(100vw - (2*#{$appContainerPad}));
-      margin-bottom: $navThickness;
+      margin-bottom: $navThickness  + 20px;
     }
-
   }
 
   @media (max-width: $breakBar) {
@@ -65,10 +64,21 @@ a{
 
 .view-header{
   margin-bottom: 60px;
+  padding: 0 10px;
+  &>h1:nth-child(1){
+    float: left;
+  }
+  &>div:nth-child(1){
+    float: left;
+  }
+  &>div:nth-child(2){
+    float: right;
+  }
 }
 
 .results-container{
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 40px;
 }
 
@@ -130,7 +140,7 @@ a{
 //Transitions
 .page-view-left-enter {
   opacity: 0;
-  transition: all $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  transition: all $transitionDuration $animationEasing;
   &.page-view-left-enter-active {
     opacity: 1;
     @media (min-width: $breakBar + 1px) {
@@ -156,7 +166,7 @@ a{
   @media (max-width: $breakBar) {
     left: $appContainerPad;
   }
-  transition: all $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  transition: all $transitionDuration $animationEasing;
   &.page-view-left-leave-active {
     opacity: 0;
     @media (min-width: $breakBar + 1px) {
@@ -171,7 +181,7 @@ a{
 
 .page-view-right-enter {
   opacity: 0;
-  transition: all $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  transition: all $transitionDuration $animationEasing;
   &.page-view-right-enter-active {
     opacity: 1;
     @media (min-width: $breakBar + 1px) {
@@ -197,7 +207,7 @@ a{
   @media (max-width: $breakBar) {
     left: $appContainerPad;
   }
-  transition: all $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  transition: all $transitionDuration $animationEasing;
   &.page-view-right-leave-active {
     opacity: 0;
     @media (min-width: $breakBar + 1px) {
@@ -215,7 +225,7 @@ a{
   width: 100vw;
   height: 100vh;
   opacity: 0;
-  transition: opacity $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  transition: opacity $transitionDuration $animationEasing;
   &.fade-enter-active{
     opacity: 1;
   }
@@ -226,7 +236,7 @@ a{
   width: 100vw;
   height: 100vh;
   opacity: 1;
-  transition: opacity $transitionDuration cubic-bezier(.12,.85,.2,.94);
+  transition: opacity $transitionDuration $animationEasing;
   &.fade-leave-active{
     opacity: 0;
   }

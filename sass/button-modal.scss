@@ -1,0 +1,31 @@
+@import "_variables.scss";
+
+.button-modal{
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: all $transitionDuration $animationEasing;
+  background-color: $orange;
+  color: $white;
+  border: 1px solid $white;
+  padding: 10px 15px;
+  border-radius: 21px;
+  overflow: hidden;
+  height: 19px;
+  width: 0px;
+  opacity: 0;
+  visibility: hidden;
+  &.open{
+    color: $orange;
+    border: 1px solid $orange;
+    background-color: $white;
+    overflow: auto;
+    height: calc(100vh - #{4*$appContainerPad + $navThickness});
+    width: 40vw;
+    opacity: 1;
+    visibility: visible;
+    @media(max-width: $breakBar){
+      width: calc(100vw - #{$appContainerPad*4});
+    }
+  }
+}

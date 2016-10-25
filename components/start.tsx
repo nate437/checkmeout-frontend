@@ -66,7 +66,6 @@ let App = React.createClass({
     if ((path == "/app/a/search" && this.state.prevRoute == "/app/a/profile") || path == "/app/a/stores"){
       animation = "page-view-right";
     }
-	 console.log(path + '   ' + this.state.prevRoute);
     this.setState({prevRoute: path, animation: animation});
   },
   render() {

@@ -15,6 +15,6 @@ $appContainerPad: 20px;
 //Animations
 $animationOffset: 200px;
 $transitionDuration: .5s;
-
+$animationEasing: cubic-bezier(.12,.85,.2,.94);
 //Media Queries
 $breakBar: 768px;

@@ -1,7 +1,8 @@
 @import "variables";
 
 .store-thumbnail{
-  margin: 20px 0px;
+  margin: 10px 10px;
+  flex-grow: 1;
   background-color: $blue;
   height: 200px;
   // background-size: 100% 100%;

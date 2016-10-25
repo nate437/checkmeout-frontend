@@ -8,7 +8,7 @@ import '../sass/search-bar.scss';
 class SearchBar extends React.Component<{},{}>{
   render(){
     return(
-      <div>
+      <div style={{marginBottom: 0}} className="view-header">
         <input type="text" className="searchbar-bar" placeholder="search"></input>
       </div>
     );

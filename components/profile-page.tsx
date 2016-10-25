@@ -4,8 +4,8 @@ import * as React from 'react';
 import RoundButton from './round-button.tsx';
 import Counter from './counter.tsx';
 import { browserHistory } from 'react-router';
-import AppSession from './session.tsx'
-import SearchPreview from './search-preview.tsx'
+import AppSession from './session.tsx';
+import SearchPreview from './search-preview.tsx';
 
 import '../sass/profile.scss';
 
@@ -35,6 +35,7 @@ class Profile extends React.Component<ProfileProps, {}>{
     auth2.signOut().then(function () {
       browserHistory.push('/app/signin');
     });
+    AppSession.updateUser({});
   }
   render() {
     var profilePicStyle={
@@ -43,8 +44,8 @@ class Profile extends React.Component<ProfileProps, {}>{
     return(
       <div>
         <div className="view-header">
-          <h1 style={{float: 'left'}}>My Profile </h1>
-          <RoundButton style={{float: 'right'}} text="sign out" action={this.signOut}/>
+          <h1>My Profile </h1>
+          <RoundButton text="sign out" action={this.signOut}/>
         </div>
         <div className="profile-summary">
           <div style={profilePicStyle} className="profile-pic"></div>

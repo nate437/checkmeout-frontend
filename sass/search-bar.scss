@@ -2,8 +2,8 @@
 
 .searchbar-bar {
     border:2px solid $orange ;
-    width: 100%;
+    width: calc(calc(100%) - #{$appContainerPad});
     font-size: 20px;
     padding: 2px 4px;
-    margin: 0 10px;
+    margin: 0;
 }

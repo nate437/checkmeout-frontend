@@ -5,12 +5,14 @@ import * as React from 'react';
 //STYLE IMPORTS
 import '../sass/search-bar.scss';
 
-class SearchPreview extends React.Component<{},{}>{
+class SearchBar extends React.Component<{},{}>{
   render(){
     return(
-     <input type="text" className="searchbar-bar"></input>
+      <div>
+        <input type="text" className="searchbar-bar" placeholder="search"></input>
+      </div>
     );
   }
 }
 
-export default SearchPreview;
+export default SearchBar;

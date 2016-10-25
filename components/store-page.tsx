@@ -30,6 +30,13 @@ class Stores extends React.Component<{}, StoreState>{
   // },
   render() {
     var data = [{"id":1,"name":"S&T Library","img_url":"https:\/\/media.glassdoor.com\/l\/a0\/c3\/2c\/36\/curtis-laws-wilson-library.jpg","location":"400 W 14th St, Rolla, MO 65409"}];
+
+    var results = data.map(function (store) {
+      return(
+        <StoreThumbnail key={store.id} location={store.location} imgUrl={store.img_url} name={store.name} />
+      )
+    });
+    
     return(
       <div>
         <div className="view-header">
@@ -37,12 +44,14 @@ class Stores extends React.Component<{}, StoreState>{
         <RoundButton style={{float: 'right'}} text="add stores" action={function(){}}/>
         </div>
 
-        <div>
-          <StoreThumbnail name={data[0].name} location={data[0].location} imgUrl={data[0].img_url} />
+        <div className="results-container">
+          {results}
         </div>
 
-        <div>
-
+        <div className="end-text">
+          Thats all folks!
+          <br/>
+          You can add more stores by clicking 'add stores' above.
         </div>
       </div>
     )

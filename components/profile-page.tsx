@@ -9,6 +9,21 @@ import SearchPreview from './search-preview.tsx'
 
 import '../sass/profile.scss';
 
+interface SubHeadProps {
+  title:string;
+}
+
+class SubHeader extends React.Component<SubHeadProps,{}>{
+  render(){
+    return(
+      <div>
+        <span className="profile-subsection-header">{this.props.title}</span>
+        <div className="profile-subsection-divider"></div>
+      </div>
+    )
+  }
+}
+
 interface ProfileProps {
   name: string;
   items: any;
@@ -42,9 +57,8 @@ class Profile extends React.Component<ProfileProps, {}>{
             </div>
           </div>
         </div>
-        <hr/>
-        <div className="profile-subsection-header">WATCHED ITEMS</div>
-        <div className="profile-subsection-header">CHECKED OUT ITEMS</div>
+        <SubHeader title="watched items" />
+        <SubHeader title="checked out items" />
       </div>
     )
   }

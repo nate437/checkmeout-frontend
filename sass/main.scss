@@ -67,6 +67,17 @@ a{
   margin-bottom: 60px;
 }
 
+.results-container{
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.end-text{
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+}
+
 //Nav
 .nav{
   position: fixed;

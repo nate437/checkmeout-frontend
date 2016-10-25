@@ -6,6 +6,9 @@ import * as DOM from 'react-dom';
 import RoundButton from './round-button.tsx';
 import StoreThumbnail from './store-thumbnail.tsx';
 
+//STYLE IMPORTS
+import '../sass/store-thumbnail.scss';
+
 interface StoreState{
   data:string[];
 }
@@ -36,12 +39,12 @@ class Stores extends React.Component<{}, StoreState>{
         <StoreThumbnail key={store.id} location={store.location} imgUrl={store.img_url} name={store.name} />
       )
     });
-    
+
     return(
       <div>
         <div className="view-header">
-        <h1 style={{float: 'left'}}>My Stores </h1>
-        <RoundButton style={{float: 'right'}} text="add stores" action={function(){}}/>
+          <h1 style={{float: 'left'}}>My Stores </h1>
+          <RoundButton style={{float: 'right'}} text="add stores" action={function(){}}/>
         </div>
 
         <div className="results-container">

@@ -9,6 +9,7 @@ interface StoreProps {
   name: string;
   location: string;
   imgUrl: string;
+  clickAction?: any;
 }
 
 class StoreThumbnail extends React.Component<StoreProps, {}>{
@@ -17,7 +18,7 @@ class StoreThumbnail extends React.Component<StoreProps, {}>{
       backgroundImage: 'url(' + this.props.imgUrl +')'
     }
     return(
-      <div className="store-thumbnail" style={boxBackground}>
+      <div onClick={!!this.props.clickAction ? this.props.clickAction : function(){}} className="store-thumbnail" style={boxBackground}>
         <div className="store-thumbnail-name">
           {this.props.name}
         </div>

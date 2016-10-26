@@ -37,6 +37,10 @@ class Profile extends React.Component<{}, ProfileState>{
       watchedItems:[],
       checkedOutItems:[]
     };
+    this.updateData = this.updateData.bind(this);
+  }
+  updateData(){
+    var parent = this;
     $.ajax({
         type: "GET",
         url: "//api." + window.location.hostname + "/user/checked_out_items",
@@ -46,14 +50,13 @@ class Profile extends React.Component<{}, ProfileState>{
           user_id: AppSession['id']
         },
         success: function(newData){
-          this.state={
-            watchedItems:[],
-            checkedOutItems:newData.items
-          }
-
+          parent.setState({watchedItems:[],
+          checkedOutItems:newData.items});
         }
     });
-
+  }
+  componentDidMount(){
+    this.updateData();
   }
   signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
@@ -93,8 +96,8 @@ class Profile extends React.Component<{}, ProfileState>{
             <div className="profile-name">{AppSession['user'].getName()}</div>
             <div className="profile-email">{AppSession['user'].getEmail()}</div>
             <div className="profile-counter-cluster">
-              <Counter count={3} itemName="item" stateDesc="checked out"/>
-              <Counter count={1} itemName="item" stateDesc="over due"/>
+              <Counter count={this.state.checkedOutItems.length} itemName="item" stateDesc="checked out"/>
+              <Counter count={0} itemName="item" stateDesc="over due"/>
             </div>
           </div>
         </div>

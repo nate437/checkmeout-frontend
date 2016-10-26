@@ -19,7 +19,6 @@
     display: none;
   }
   &.open{
-    right: 0;
     color: $orange;
     border: 1px solid $orange;
     background-color: $white;
@@ -36,8 +35,4 @@
       display: inherit;
     }
   }
-}
-
-.button-modal-content{
-  padding: $appContainerPad;
 }

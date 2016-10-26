@@ -6,6 +6,7 @@ import StoreThumbnail from './store-thumbnail.tsx';
 import ButtonModal from './button-modal.tsx';
 import AppSession from './session.tsx';
 import * as $ from 'jquery';
+import AddStore from './store-add.tsx'
 
 //STYLE IMPORTS
 import '../sass/store-thumbnail.scss';
@@ -33,7 +34,6 @@ class Stores extends React.Component<{}, StoreState>{
           user_id: AppSession['id']
         },
         success: function(newData){
-          console.log(newData);
           parent.setState({data:newData.stores, showAddStores: parent.state.showAddStores});
         }
     });
@@ -60,7 +60,7 @@ class Stores extends React.Component<{}, StoreState>{
         <div className="view-header">
           <h1>My Stores </h1>
           <RoundButton text="add stores" action={this.toggleAddStores}/>
-          <ButtonModal open={this.state.showAddStores} title="add stores">it works!</ButtonModal>
+          <ButtonModal open={this.state.showAddStores} title="Add Stores"><AddStore updateAction={this.updateData}/></ButtonModal>
         </div>
 
         <div className="results-container">

@@ -7,19 +7,43 @@ import * as DOM from 'react-dom';
 
 import SearchPreview from './search-preview.tsx';
 import SearchBar from './search-bar.tsx';
+import * as $ from 'jquery';
+import AppSession from './session.tsx';
 
-var Search = React.createClass({
+interface SearchState {
+  results: any[];
+}
 
-  render: function() {
-    var data =[{"id":1,"name":"HP Laptop","img_url":"https://i5.walmartimages.com/dfw/4ff9c6c9-2ac9/k2-_ed8b8f8d-e696-4a96-8ce9-d78246f10ed1.v1.jpg"},
-              {"id":2,"name":"Macbook Pro","img_url":"https://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2014/01/29-macbookpro-retina.jpg"}];
-
-    var results = data.map(function (item) {
+class Search extends React.Component<{},SearchState>{
+  constructor(){
+    super();
+    this.state = {results:[]};
+    this.updateData = this.updateData.bind(this);
+  }
+  updateData(){
+    var parent = this;
+    $.ajax({
+        type: "GET",
+        url: "//api." + window.location.hostname + "/item",
+        data: {
+          id_token: AppSession['token']
+        },
+        success: function(data){
+          parent.setState({results:data.data});
+        }
+    });
+  }
+  componentDidMount(){
+    this.updateData();
+  }
+  render() {
+    var results = this.state.results.map(function (item) {
       return(
         <SearchPreview key={item.id} imgUrl={item.img_url} itemName={item.name} />
       )
     });
 
+    //TODO: remove searchbar and replace with actual components
     return(
       <div>
           <SearchBar />
@@ -34,6 +58,6 @@ var Search = React.createClass({
       </div>
     )
   }
-});
+};
 
 export default Search;

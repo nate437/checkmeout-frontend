@@ -3,7 +3,7 @@
 .button-modal{
   position: absolute;
   top: 0;
-  right: 0;
+  right: 10px;
   transition: all $transitionDuration $animationEasing;
   background-color: $orange;
   color: $white;
@@ -11,11 +11,15 @@
   padding: 10px 15px;
   border-radius: 21px;
   overflow: hidden;
-  height: 19px;
+  height: 0px;
   width: 0px;
   opacity: 0;
   visibility: hidden;
+  &>*{
+    display: none;
+  }
   &.open{
+    right: 0;
     color: $orange;
     border: 1px solid $orange;
     background-color: $white;
@@ -24,8 +28,16 @@
     width: 40vw;
     opacity: 1;
     visibility: visible;
+    border-radius: 0;
     @media(max-width: $breakBar){
       width: calc(100vw - #{$appContainerPad*4});
     }
+    &>*{
+      display: inherit;
+    }
   }
+}
+
+.button-modal-content{
+  padding: $appContainerPad;
 }

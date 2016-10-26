@@ -32,11 +32,13 @@ class ButtonModal extends React.Component<ButtonModalProps, ButtonModalState>{
     render() {
       return(
         <div className={"button-modal " + (this.state.open ? "open" : "")}>
-          <div className="veiw-header">
-            <div>{this.props.title}</div>
+          <div className="view-header">
+            <h1>{this.props.title}</h1>
             <RoundButton text="close" action={this.close}/>
           </div>
-          {this.props.children}
+          <div className="button-modal-content">
+            {this.props.children}
+          </div>
         </div>
       );
     }

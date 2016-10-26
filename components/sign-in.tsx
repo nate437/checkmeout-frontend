@@ -5,22 +5,33 @@
 import * as React from 'react';
 import * as $ from 'jquery';
 import { browserHistory } from 'react-router';
-import AppSession from './session.tsx'
+import AppSession from './session.tsx';
 
 import '../sass/signin.scss';
 
 class Signin extends React.Component<{},{}>{
 
   private onSignIn(googleUser:any) {
-      AppSession.updateUser(googleUser.getBasicProfile()); // plus any other logic here
-      browserHistory.push('/app/a');
+    $.ajax({
+        type: "GET",
+        url: "//api." + window.location.hostname + "/login",
+        data: {
+          id_token: googleUser.getAuthResponse().id_token,
+          email: googleUser.getBasicProfile().getEmail()
+        },
+        success: function(data){
+          AppSession.updateUser(googleUser.getBasicProfile(), googleUser.getAuthResponse().id_token, data.data.user_id);
+          browserHistory.push('/app/a');
+        }
+    });
+
   }
 
   componentDidMount() {
     // execute any gapi calls here...
     gapi.signin2.render('g-signin2', {
       'scope': 'https://www.googleapis.com/auth/plus.login',
-      'width': 200,
+      'width': 235,
       'height': 50,
       'longtitle': true,
       'theme': 'light',

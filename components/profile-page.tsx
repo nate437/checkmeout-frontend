@@ -6,6 +6,7 @@ import Counter from './counter.tsx';
 import { browserHistory } from 'react-router';
 import AppSession from './session.tsx';
 import SearchPreview from './search-preview.tsx';
+import * as $ from 'jquery';
 
 import '../sass/profile.scss';
 
@@ -24,23 +25,62 @@ class SubHeader extends React.Component<SubHeadProps,{}>{
   }
 }
 
-interface ProfileProps {
-  name: string;
-  items: any;
+interface ProfileState{
+  watchedItems:SearchPreview[];
+  checkedOutItems:SearchPreview[];
 }
 
-class Profile extends React.Component<ProfileProps, {}>{
+class Profile extends React.Component<{}, ProfileState>{
+  constructor(){
+    super();
+    this.state={
+      watchedItems:[],
+      checkedOutItems:[]
+    };
+    $.ajax({
+        type: "GET",
+        url: "//api." + window.location.hostname + "/user/checked_out_items",
+        dataType: 'json',
+        data: {
+          id_token: AppSession['token'],
+          user_id: AppSession['id']
+        },
+        success: function(newData){
+          this.state={
+            watchedItems:[],
+            checkedOutItems:newData.items
+          }
+
+        }
+    });
+
+  }
   signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       browserHistory.push('/app/signin');
     });
-    AppSession.updateUser({});
+    //clear out the app session vars
+    AppSession.updateUser({},"","");
   }
   render() {
+
     var profilePicStyle={
         backgroundImage: "url('" + AppSession['user'].getImageUrl() + "?sz=150')"
     }
+//TODO: fix implicit ANY types and create a d.ts for all api endpoints.
+    var watchedResults = this.state.watchedItems.map(function (item:any) {
+       return(
+         <SearchPreview key={item.id} imgUrl={item.img_url} itemName={item.name} />
+       )
+     });
+
+     var checkedOutResults = this.state.checkedOutItems.map(function (item:any) {
+        return(
+          <SearchPreview key={item.id} imgUrl={item.img_url} itemName={item.name} />
+        )
+      });
+
     return(
       <div>
         <div className="view-header">
@@ -59,7 +99,13 @@ class Profile extends React.Component<ProfileProps, {}>{
           </div>
         </div>
         <SubHeader title="watched items" />
+        <div className="results-container">
+          {watchedResults}
+        </div>
         <SubHeader title="checked out items" />
+        <div className="results-container">
+          {checkedOutResults}
+        </div>
       </div>
     )
   }

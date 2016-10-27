@@ -22,7 +22,6 @@
     color: $orange;
     border: 1px solid $orange;
     background-color: $white;
-    overflow: auto;
     height: calc(100vh - #{4*$appContainerPad + $navThickness});
     width: 40vw;
     opacity: 1;

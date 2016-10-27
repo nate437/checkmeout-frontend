@@ -1,3 +1,6 @@
+@import "_variables.scss";
+
 .add-store-results{
   overflow: scroll;
+  max-height: calc(calc(100vh - #{5*$appContainerPad + $navThickness}) - 60px);
 }

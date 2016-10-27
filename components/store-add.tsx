@@ -41,6 +41,7 @@ class AddStore extends React.Component<AddStoreProps,AddStoreState>{
     this.updateData();
   }
   joinStore(sid:number){
+    var parent = this;
     console.log("joining store" + sid);
     $.ajax({
         type: "GET",
@@ -52,7 +53,7 @@ class AddStore extends React.Component<AddStoreProps,AddStoreState>{
           store_id: sid
         },
         success: function(newData){
-          this.props.updateAction();
+          parent.props.updateAction();
         }
     });
   }

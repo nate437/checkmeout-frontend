@@ -26,8 +26,9 @@ class SubHeader extends React.Component<SubHeadProps,{}>{
 }
 
 interface ProfileState{
-  watchedItems:SearchPreview[];
-  checkedOutItems:SearchPreview[];
+  watchedItems?:SearchPreview[];
+  checkedOutItems?:SearchPreview[];
+  intervalId?:any;
 }
 
 class Profile extends React.Component<{}, ProfileState>{
@@ -50,6 +51,7 @@ class Profile extends React.Component<{}, ProfileState>{
           user_id: AppSession['id']
         },
         success: function(newData){
+          console.log(newData);
           parent.setState({watchedItems:[],
           checkedOutItems:newData.items});
         }
@@ -57,7 +59,14 @@ class Profile extends React.Component<{}, ProfileState>{
   }
   componentDidMount(){
     this.updateData();
-  }
+    var intervalId = setInterval(this.updateData, 5000);
+   // store intervalId in the state so it can be accessed later:
+   this.setState({intervalId: intervalId});
+ }
+ componentWillUnmount() {
+   //so we don't get fun memory leaks!
+   clearInterval(this.state.intervalId);
+}
   signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {

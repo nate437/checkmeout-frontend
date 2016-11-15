@@ -1,0 +1,13 @@
+@import "_variables.scss";
+
+.subsection-header{
+  text-transform: uppercase;
+  background-color: $white;
+  color: $transBlack;
+  padding: 5px;
+}
+.subsection-divider{
+  margin-top: -9.5px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid $transBlack;
+}

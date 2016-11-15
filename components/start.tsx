@@ -15,6 +15,7 @@ import Stores from './store-page.tsx';
 import Profile from './profile-page.tsx';
 import Signin from './sign-in.tsx';
 import AppSession from './session.tsx';
+import Manage from './manage-page.tsx';
 
 //STYLE IMPORTS
 import '../sass/main.scss';
@@ -25,6 +26,7 @@ declare function require(path: string) : any;
 var StoreIcon = require("../images/stores.svg");
 var SearchIcon = require("../images/search.svg");
 var ProfileIcon = require("../images/profile.svg");
+var ManageIcon = require("../images/manage.svg");
 
 //DEFINE NAV ITEM COMPONENT
 interface NavProps {
@@ -63,7 +65,10 @@ let App = React.createClass({
   componentWillReceiveProps(nextProps:any){
     var path = nextProps.location.pathname;
     var animation = "page-view-left";
-    if ((path == "/app/a/search" && this.state.prevRoute == "/app/a/profile") || path == "/app/a/stores"){
+    if ((path == "/app/a/search"
+        && (this.state.prevRoute == "/app/a/profile" || this.state.prevRoute == "/app/a/manage"))
+        || path == "/app/a/profile" && this.state.prevRoute == "/app/a/manage"
+        || path == "/app/a/stores"){
       animation = "page-view-right";
     }
     this.setState({prevRoute: path, animation: animation});
@@ -78,6 +83,7 @@ let App = React.createClass({
             <Link to="/app/a/stores" activeClassName="active"><NavItem title="stores" icon={StoreIcon} /></Link>
             <Link to="/app/a/search" activeClassName="active"><NavItem title="search" icon={SearchIcon} /></Link>
             <Link to="/app/a/profile" activeClassName="active"><NavItem title="profile" icon={ProfileIcon}/></Link>
+            <Link to="/app/a/manage" activeClassName="active"><NavItem title="manage" icon={ManageIcon}/></Link>
           </div>
         </div>
         <div className="app-content-container">
@@ -102,6 +108,7 @@ let routes = (
       <Route key="search" path="/app/a/search" component={Search}/>
       <Route key="stores" path="/app/a/stores" component={Stores}/>
       <Route key="profile" path="/app/a/profile" component={Profile}/>
+      <Route key="manage" path="/app/a/manage" component={Manage}/>
     </Route>
   </Route>
 );

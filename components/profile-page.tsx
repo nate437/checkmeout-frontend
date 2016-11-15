@@ -2,28 +2,12 @@
 
 import * as React from 'react';
 import RoundButton from './round-button.tsx';
-import Counter from './counter.tsx';
 import { browserHistory } from 'react-router';
 import AppSession from './session.tsx';
 import SearchPreview from './search-preview.tsx';
 import * as $ from 'jquery';
-
-import '../sass/profile.scss';
-
-interface SubHeadProps {
-  title:string;
-}
-
-class SubHeader extends React.Component<SubHeadProps,{}>{
-  render(){
-    return(
-      <div>
-        <span className="profile-subsection-header">{this.props.title}</span>
-        <div className="profile-subsection-divider"></div>
-      </div>
-    )
-  }
-}
+import SubHeader from './sub-header.tsx';
+import Summary from './summary.tsx';
 
 interface ProfileState{
   watchedItems?:SearchPreview[];
@@ -99,17 +83,9 @@ class Profile extends React.Component<{}, ProfileState>{
           <h1>My Profile </h1>
           <RoundButton text="sign out" action={this.signOut}/>
         </div>
-        <div className="profile-summary">
-          <div style={profilePicStyle} className="profile-pic"></div>
-          <div>
-            <div className="profile-name">{AppSession['user'].getName()}</div>
-            <div className="profile-email">{AppSession['user'].getEmail()}</div>
-            <div className="profile-counter-cluster">
-              <Counter count={this.state.checkedOutItems.length} itemName="item" stateDesc="checked out"/>
-              <Counter count={0} itemName="item" stateDesc="over due"/>
-            </div>
-          </div>
-        </div>
+        <Summary title={AppSession['user'].getName()} subTitle={AppSession['user'].getEmail()} imgUrl={AppSession['user'].getImageUrl() + "?sz=150"}
+                 firstCount={this.state.checkedOutItems.length} firstCountItemName="item" firstCountDesc="checked out"
+                 secondCount={0} secondCountItemName="item" secondCountDesc="over due"/>
         <SubHeader title="watched items" />
         <div className="results-container">
           {watchedResults}

@@ -43,7 +43,7 @@ class Signin extends React.Component<{},{}>{
     return(
       <div style={{backgroundImage: "url('../images/background.svg')"}} className="signin-bg">
         <img className="signin-logo" src="../images/logo.svg"/>
-        <div className="signin-desc">Check Me Out is an easy-to-use, internet conntected self-checkout system designed for resource tracking.</div>
+        <div className="signin-desc">Check Me Out is an easy-to-use, internet connected self-checkout system designed for resource tracking.</div>
         <div id="g-signin2" ></div>
       </div>
     );

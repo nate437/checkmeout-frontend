@@ -9,9 +9,23 @@ interface SearchBarProps {
   action: (query:string)=>void;
 }
 
-class SearchBar extends React.Component<SearchBarProps,{}>{
+interface SearchBarState{
+  timer: number;
+}
+
+class SearchBar extends React.Component<SearchBarProps,SearchBarState>{
+  constructor(){
+    super();
+    this.state={
+      timer: 0
+    }
+  }
   updateQuery(e:any){
-    this.props.action(e.target.value);
+    e.persist();
+    var parent = this;
+    clearTimeout(this.state.timer);
+    var newTimer = setTimeout(function(){parent.props.action(e.target.value)},250);
+    this.setState({timer: newTimer})
   }
   render(){
     return(

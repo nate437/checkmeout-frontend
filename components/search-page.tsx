@@ -22,17 +22,32 @@ class Search extends React.Component<{},SearchState>{
   }
   updateData(query:string){
     var parent = this;
-    $.ajax({
-        type: "GET",
-        url: "//api." + window.location.hostname + "/item/search",
-        data: {
-          id_token: AppSession['token'],
-          item_name: query
-        },
-        success: function(data){
-          parent.setState({results:data.data});
-        }
-    });
+    if (query == ''){
+      console.log('here');
+      $.ajax({
+          type: "GET",
+          url: "//api." + window.location.hostname + "/item",
+          data: {
+            id_token: AppSession['token']
+          },
+          success: function(data){
+            parent.setState({results:data.data});
+          }
+      });
+    }
+    else{
+      $.ajax({
+          type: "GET",
+          url: "//api." + window.location.hostname + "/item/search",
+          data: {
+            id_token: AppSession['token'],
+            item_name: query
+          },
+          success: function(data){
+            parent.setState({results:data.data.items});
+          }
+      });
+    }
   }
   componentDidMount(){
     this.updateData('');

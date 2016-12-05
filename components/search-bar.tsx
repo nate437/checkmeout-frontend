@@ -5,11 +5,18 @@ import * as React from 'react';
 //STYLE IMPORTS
 import '../sass/search-bar.scss';
 
-class SearchBar extends React.Component<{},{}>{
+interface SearchBarProps {
+  action: (query:string)=>void;
+}
+
+class SearchBar extends React.Component<SearchBarProps,{}>{
+  updateQuery(e:any){
+    this.props.action(e.target.value);
+  }
   render(){
     return(
       <div style={{marginBottom: 0}} className="view-header">
-        <input type="text" className="searchbar-bar" placeholder="search"></input>
+        <input type="text" onChange={this.updateQuery.bind(this)} className="searchbar-bar" placeholder="search"></input>
       </div>
     );
   }

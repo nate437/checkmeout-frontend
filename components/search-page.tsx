@@ -20,13 +20,14 @@ class Search extends React.Component<{},SearchState>{
     this.state = {results:[]};
     this.updateData = this.updateData.bind(this);
   }
-  updateData(){
+  updateData(query:string){
     var parent = this;
     $.ajax({
         type: "GET",
-        url: "//api." + window.location.hostname + "/item",
+        url: "//api." + window.location.hostname + "/item/search",
         data: {
-          id_token: AppSession['token']
+          id_token: AppSession['token'],
+          item_name: query
         },
         success: function(data){
           parent.setState({results:data.data});
@@ -34,7 +35,7 @@ class Search extends React.Component<{},SearchState>{
     });
   }
   componentDidMount(){
-    this.updateData();
+    this.updateData('');
   }
   render() {
     var results = this.state.results.map(function (item) {
@@ -43,10 +44,9 @@ class Search extends React.Component<{},SearchState>{
       )
     });
 
-    //TODO: remove searchbar and replace with actual components
     return(
       <div>
-          <SearchBar />
+          <SearchBar action={this.updateData}/>
           <div className="results-container">
             {results}
           </div>

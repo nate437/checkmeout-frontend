@@ -4,6 +4,7 @@ import * as React from 'react';
 import RoundButton from './round-button.tsx';
 import SubHeader from './sub-header.tsx';
 import Summary from './summary.tsx';
+import ButtonModal from './button-modal.tsx';
 
 class Manage extends React.Component<{},{}>{
   render(){
@@ -12,6 +13,9 @@ class Manage extends React.Component<{},{}>{
         <div className="view-header">
           <h1>Manage </h1>
           <RoundButton text="edit store" action={function(){}}/>
+          <ButtonModal open={false} title={'Edit Store'}>
+
+          </ButtonModal>
         </div>
         <Summary title={"store name"} subTitle={"location"} imgUrl={''}
                  firstCount={0} firstCountItemName="item" firstCountDesc="in store"

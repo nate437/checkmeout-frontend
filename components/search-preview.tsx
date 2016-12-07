@@ -8,6 +8,7 @@ import '../sass/search-preview.scss';
 interface SearchPreviewProps {
   imgUrl: string;
   itemName: string;
+  checkedOut: string;
 }
 
 class SearchPreview extends React.Component<SearchPreviewProps,{}>{
@@ -16,7 +17,7 @@ class SearchPreview extends React.Component<SearchPreviewProps,{}>{
       backgroundImage: 'url('+this.props.imgUrl+')'
     }
     return(
-     <div className="searchpreview-square-box" style={boxBackground}>
+     <div className={"searchpreview-square-box " + (this.props.checkedOut == "true" ? "taken" : "")} style={boxBackground}>
           <div className="searchpreview-text">{this.props.itemName}</div>
      </div>
     );

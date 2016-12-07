@@ -9,6 +9,22 @@
     background-position: center;
     margin: 5px;
     flex-grow: 1;
+    &.taken{
+      border:5px solid $orange;
+    }
+    &.taken:after{
+      position: relative;
+      display: block;
+      text-align: center;
+      top: 21px;
+      border-radius: 20px;
+      padding: 5px;
+      margin: 0 auto;
+      content: 'checked out';
+      background-color: $orange;
+      color: $white;
+      width: calc(100% - 24px);
+    }
 }
 
 .searchpreview-text{

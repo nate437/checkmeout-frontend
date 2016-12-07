@@ -98,11 +98,11 @@ a{
 }
 
 .loader{
-  height: 50px;
-  width: 50px;
+  height: 35px;
+  width: 35px;
   perspective: 30px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  animation: loader 1.2s $animationEasing infinite;
+  animation: loader 1.3s $animationEasing infinite;
 }
 
 .center-frame{

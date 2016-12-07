@@ -43,6 +43,7 @@ class Search extends React.Component<{},SearchState>{
           url: "//api." + window.location.hostname + "/item/search",
           data: {
             id_token: AppSession['token'],
+            user_id: AppSession['id'],
             item_name: query
           },
           success: function(data){
@@ -57,7 +58,7 @@ class Search extends React.Component<{},SearchState>{
   render() {
     var results = this.state.results.map(function (item) {
       return(
-        <SearchPreview key={item.id} imgUrl={item.img_url} itemName={item.name} />
+        <SearchPreview key={item.id} imgUrl={item.img_url} itemName={item.name} checkedOut={item.checked_out}/>
       )
     });
 

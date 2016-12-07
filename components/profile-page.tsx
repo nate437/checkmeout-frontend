@@ -63,16 +63,10 @@ class Profile extends React.Component<{}, ProfileState>{
     var profilePicStyle={
         backgroundImage: "url('" + AppSession['user'].getImageUrl() + "?sz=150')"
     }
-//TODO: fix implicit ANY types and create a d.ts for all api endpoints.
-    var watchedResults = this.state.watchedItems.map(function (item:any) {
-       return(
-         <SearchPreview key={item.id} imgUrl={item.img_url} itemName={item.name} />
-       )
-     });
 
      var checkedOutResults = this.state.checkedOutItems.map(function (item:any) {
         return(
-          <SearchPreview key={item.id} imgUrl={item.img_url} itemName={item.name} />
+          <SearchPreview key={item.id} imgUrl={item.img_url} itemName={item.name} checkedOut="false"/>
         )
       });
 

@@ -10,6 +10,7 @@ interface StoreProps {
   location: string;
   imgUrl: string;
   clickAction?: any;
+  key: number;
 }
 
 class StoreThumbnail extends React.Component<StoreProps, {}>{

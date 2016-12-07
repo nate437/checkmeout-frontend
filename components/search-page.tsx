@@ -12,18 +12,19 @@ import AppSession from './session.tsx';
 
 interface SearchState {
   results: any[];
+  loading: boolean;
 }
 
 class Search extends React.Component<{},SearchState>{
   constructor(){
     super();
-    this.state = {results:[]};
+    this.state = {results:[], loading: true};
     this.updateData = this.updateData.bind(this);
   }
   updateData(query:string){
+    this.setState({results: this.state.results, loading: true})
     var parent = this;
     if (query == ''){
-      console.log('here');
       $.ajax({
           type: "GET",
           url: "//api." + window.location.hostname + "/item",
@@ -31,7 +32,7 @@ class Search extends React.Component<{},SearchState>{
             id_token: AppSession['token']
           },
           success: function(data){
-            parent.setState({results:data.data});
+            parent.setState({results:data.data, loading: false});
           }
       });
     }
@@ -44,7 +45,7 @@ class Search extends React.Component<{},SearchState>{
             item_name: query
           },
           success: function(data){
-            parent.setState({results:data.data.items});
+            parent.setState({results:data.data.items, loading: false});
           }
       });
     }
@@ -62,14 +63,19 @@ class Search extends React.Component<{},SearchState>{
     return(
       <div>
           <SearchBar action={this.updateData}/>
-          <div className="results-container">
+          <div className={"results-container" + (!this.state.loading ? '' : ' hidden')}>
             {results}
+          </div>
+          <div className={"center-frame" + (this.state.loading ? '' : ' hidden')}>
+            <div className="loader"></div>
           </div>
           <div className="end-text">
             Thats all of the results we could find for that search!
             <br/>
             Try refining your search to see more results.
           </div>
+
+
       </div>
     )
   }

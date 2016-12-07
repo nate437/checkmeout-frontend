@@ -86,10 +86,11 @@ class Profile extends React.Component<{}, ProfileState>{
         <Summary title={AppSession['user'].getName()} subTitle={AppSession['user'].getEmail()} imgUrl={AppSession['user'].getImageUrl() + "?sz=150"}
                  firstCount={this.state.checkedOutItems.length} firstCountItemName="item" firstCountDesc="checked out"
                  secondCount={0} secondCountItemName="item" secondCountDesc="over due"/>
-        <SubHeader title="watched items" />
+{/*        <SubHeader title="watched items" />
         <div className="results-container">
           {watchedResults}
         </div>
+*/}
         <SubHeader title="checked out items" />
         <div className="results-container">
           {checkedOutResults}

@@ -90,6 +90,48 @@ a{
   text-align: center;
 }
 
+.loader{
+  height: 50px;
+  width: 50px;
+  perspective: 30px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  animation: loader 1.2s $animationEasing infinite;
+}
+
+.center-frame{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.hidden{
+  display: none;
+}
+
+@keyframes loader {
+  0%{
+    transform: rotate(45deg);
+    background-color: #51b5e4;
+    border-radius: 50px;
+  }
+  33%{
+    transform: rotate(45deg);
+    background-color: #51b5e4;
+    border-radius: 0px;
+  }
+  66%{
+    transform: rotate(-45deg);
+    background-color: #d79600;
+    border-radius: 0px;
+  }
+  100%{
+    transform: rotateZ(45deg) rotateX(180deg);
+    background-color: #51b5e4;
+    border-radius: 50px;
+  }
+}
+
 //Nav
 .nav{
   position: fixed;

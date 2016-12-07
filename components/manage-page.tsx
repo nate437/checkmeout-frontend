@@ -6,15 +6,34 @@ import SubHeader from './sub-header.tsx';
 import Summary from './summary.tsx';
 import ButtonModal from './button-modal.tsx';
 
-class Manage extends React.Component<{},{}>{
+interface ManageState {
+  showEditStore: boolean;
+}
+
+class Manage extends React.Component<{},ManageState>{
+  constructor(){
+    super();
+    this.state = {
+      showEditStore: false
+    }
+    this.openEdit = this.openEdit.bind(this);
+  }
+  openEdit(){
+    this.setState({showEditStore: true});
+  }
   render(){
     return(
       <div>
         <div className="view-header">
           <h1>Manage </h1>
-          <RoundButton text="edit store" action={function(){}}/>
-          <ButtonModal open={false} title={'Edit Store'}>
-
+          <RoundButton text="edit store" action={this.openEdit}/>
+          <ButtonModal open={this.state.showEditStore} title='Edit Store'>
+            Name:
+             <input placeholder="Name of store" type="text"/>
+           Location:
+             <input placeholder="Address of store" type="text"/>
+           Image Url:
+              <input placeholder="Store Image" type="text"/>
           </ButtonModal>
         </div>
         <Summary title={"store name"} subTitle={"location"} imgUrl={''}

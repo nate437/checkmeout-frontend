@@ -8,12 +8,13 @@ interface ButtonProps {
   text: string;
   action: ()=>any;
   style?: any;
+  className?: string;
 }
 
 class RoundButton extends React.Component<ButtonProps, {}>{
     render() {
       return(
-        <div style={this.props.style} onClick={this.props.action} className="round-button">
+        <div className={"round-button " + (!!this.props.className ? this.props.className : "")} style={this.props.style} onClick={this.props.action}>
           {this.props.text}
         </div>
       );

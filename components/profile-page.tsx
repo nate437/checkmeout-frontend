@@ -35,7 +35,6 @@ class Profile extends React.Component<{}, ProfileState>{
           user_id: AppSession['id']
         },
         success: function(newData){
-          console.log(newData);
           parent.setState({watchedItems:[],
           checkedOutItems:newData.items});
         }

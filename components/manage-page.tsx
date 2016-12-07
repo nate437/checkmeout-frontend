@@ -21,6 +21,9 @@ class Manage extends React.Component<{},ManageState>{
   openEdit(){
     this.setState({showEditStore: true});
   }
+  saveChanges(){
+
+  }
   render(){
     return(
       <div>
@@ -28,12 +31,21 @@ class Manage extends React.Component<{},ManageState>{
           <h1>Manage </h1>
           <RoundButton text="edit store" action={this.openEdit}/>
           <ButtonModal open={this.state.showEditStore} title='Edit Store'>
-            Name:
+            Name:<br/>
              <input placeholder="Name of store" type="text"/>
+             <br/>
+             <br/>
            Location:
+           <br/>
              <input placeholder="Address of store" type="text"/>
+             <br/>
+             <br/>
            Image Url:
+           <br/>
               <input placeholder="Store Image" type="text"/>
+           <br/><br/>
+           <br/><br/>
+           <RoundButton className="normal" text="save changes" action={this.saveChanges}/>
           </ButtonModal>
         </div>
         <Summary title={"store name"} subTitle={"location"} imgUrl={''}

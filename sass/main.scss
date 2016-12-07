@@ -1,6 +1,13 @@
 @import "variables";
 
 //Basics
+input[type="text"]{
+  border:2px solid $orange;
+  font-size: 20px;
+  width: calc(100% - 10px);
+  padding: 2px 4px;
+}
+
 h1, h2{
   font-family: $headerFont !important;
   margin-top: 0;
@@ -147,7 +154,7 @@ a{
   height: 100vh;
 
   .nav-item-container{
-    height: 40vh;
+    height: 46vh;
     max-height: 400px;
     display: flex;
     flex-direction: column;

@@ -27,12 +27,13 @@ class Search extends React.Component<{},SearchState>{
     if (query == ''){
       $.ajax({
           type: "GET",
-          url: "//api." + window.location.hostname + "/item",
+          url: "//api." + window.location.hostname + "/item/status",
           data: {
-            id_token: AppSession['token']
+            id_token: AppSession['token'],
+            user_id: AppSession['id']
           },
           success: function(data){
-            parent.setState({results:data.data, loading: false});
+            parent.setState({results:data.data.items, loading: false});
           }
       });
     }

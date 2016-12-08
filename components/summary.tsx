@@ -17,13 +17,13 @@ interface SummaryProps{
 }
 
 class Summary extends React.Component<SummaryProps, {}>{
-  profilePicStyle={
-      backgroundImage: "url('" + this.props.imgUrl + "')"
-  }
   render(){
+    var profilePicStyle={
+        backgroundImage: "url('" + this.props.imgUrl + "')"
+    }
     return(
       <div className="profile-summary">
-        <div style={this.profilePicStyle} className="profile-pic"></div>
+        <div style={profilePicStyle} className="profile-pic"></div>
         <div>
           <div className="profile-name">{this.props.title}</div>
           <div className="profile-email">{this.props.subTitle}</div>

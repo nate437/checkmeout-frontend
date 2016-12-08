@@ -16,6 +16,7 @@
   width: 0px;
   opacity: 0;
   visibility: hidden;
+  z-index:12;
   &>*{
     display: none;
   }

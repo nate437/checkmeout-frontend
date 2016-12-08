@@ -13,6 +13,7 @@ interface ProfileState{
   watchedItems?:SearchPreview[];
   checkedOutItems?:SearchPreview[];
   intervalId?:any;
+  itemLoading?:boolean;
 }
 
 class Profile extends React.Component<{}, ProfileState>{
@@ -20,7 +21,8 @@ class Profile extends React.Component<{}, ProfileState>{
     super();
     this.state={
       watchedItems:[],
-      checkedOutItems:[]
+      checkedOutItems:[],
+      itemLoading: true
     };
     this.updateData = this.updateData.bind(this);
   }
@@ -36,7 +38,7 @@ class Profile extends React.Component<{}, ProfileState>{
         },
         success: function(newData){
           parent.setState({watchedItems:[],
-          checkedOutItems:newData.items});
+          checkedOutItems:newData.items, itemLoading: false});
         }
     });
   }
@@ -85,8 +87,11 @@ class Profile extends React.Component<{}, ProfileState>{
         </div>
 */}
         <SubHeader title="checked out items" />
-        <div className="results-container">
+        <div className={"results-container" + (!this.state.itemLoading ? '' : ' hidden')}>
           {checkedOutResults}
+        </div>
+        <div className={"center-frame" + (this.state.itemLoading ? '' : ' hidden')}>
+          <div className="loader"></div>
         </div>
       </div>
     )

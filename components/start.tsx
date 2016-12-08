@@ -16,6 +16,7 @@ import Profile from './profile-page.tsx';
 import Signin from './sign-in.tsx';
 import AppSession from './session.tsx';
 import Manage from './manage-page.tsx';
+import * as $ from 'jquery';
 
 //STYLE IMPORTS
 import '../sass/main.scss';
@@ -60,7 +61,7 @@ let BaseApp = React.createClass({
 //CREATE NAV BAR
 let App = React.createClass({
   getInitialState () {
-    return { prevRoute: '/app/a/profile', animation: 'page-view-left'}
+    return { prevRoute: '/app/a/profile', animation: 'page-view-left', manager: false}
   },
   componentWillReceiveProps(nextProps:any){
     var path = nextProps.location.pathname;
@@ -73,6 +74,25 @@ let App = React.createClass({
     }
     this.setState({prevRoute: path, animation: animation});
   },
+  componentWillMount(){
+    var p = this;
+    $.ajax({
+        type: "GET",
+        url: "//api." + window.location.hostname + "/user/owned_stores",
+        dataType: 'json',
+        data: {
+          id_token: AppSession['token'],
+          user_id: AppSession['id']
+        },
+        success: function(newData){
+          if (newData.stores.length > 0){
+            p.setState({manager: true});
+            console.log('yo');
+          }
+
+        }
+    });
+  },
   render() {
     var path = this.props.location.pathname;
     var segment = path.split('/')[2] || 'root';
@@ -83,7 +103,7 @@ let App = React.createClass({
             <Link to="/app/a/stores" activeClassName="active"><NavItem title="stores" icon={StoreIcon} /></Link>
             <Link to="/app/a/search" activeClassName="active"><NavItem title="search" icon={SearchIcon} /></Link>
             <Link to="/app/a/profile" activeClassName="active"><NavItem title="profile" icon={ProfileIcon}/></Link>
-            <Link to="/app/a/manage" activeClassName="active"><NavItem title="manage" icon={ManageIcon}/></Link>
+            <Link to="/app/a/manage" className={this.state.manager ? "" : "hidden"} activeClassName="active"><NavItem title="manage" icon={ManageIcon}/></Link>
           </div>
         </div>
         <div className="app-content-container">

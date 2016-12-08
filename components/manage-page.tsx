@@ -114,7 +114,6 @@ class Manage extends React.Component<{},ManageState>{
           location: $("#newLocation").val() != '' ? $("#newLocation").val() : parent.state.storeData[parent.state.storeIndex].location
         },
         success: function(newData){
-          console.log('here');
           parent.getData();
         }
     });
@@ -165,10 +164,10 @@ class Manage extends React.Component<{},ManageState>{
           <Summary title={sName} subTitle={sLocation} imgUrl={sImg}
                    firstCount={this.state.storeItems.length} firstCountItemName="item" firstCountDesc="in store"
                    secondCount={this.state.checkedOutItems} secondCountItemName="item" secondCountDesc="checked out"/>
-       </div>
-       <div className={"center-frame" + (this.state.storeLoading ? '' : ' hidden')}>
-         <div className="loader"></div>
-       </div>
+        </div>
+        <div className={"center-frame" + (this.state.storeLoading ? '' : ' hidden')}>
+          <div className="loader"></div>
+        </div>
         <div>
           <RoundButton text="add item" action={function(){}}/>
           <RoundButton text="remove item" action={function(){}}/>

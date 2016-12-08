@@ -87,7 +87,6 @@ let App = React.createClass({
         success: function(newData){
           if (newData.stores.length > 0){
             p.setState({manager: true});
-            console.log('yo');
           }
 
         }

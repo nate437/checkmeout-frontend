@@ -38,6 +38,7 @@ class Manage extends React.Component<{},ManageState>{
     this.getItems = this.getItems.bind(this);
     this.saveChanges = this.saveChanges.bind(this);
     this.changeStore = this.changeStore.bind(this);
+    this.addItem = this.addItem.bind(this);
     this.getData();
   }
   getItems(){
@@ -100,7 +101,7 @@ class Manage extends React.Component<{},ManageState>{
       storeLoading: true,
       itemLoading: true,
       showEditStore: false
-    })
+    });
     $.ajax({
         type: "GET",
         url: "//api." + window.location.hostname + "/store/update/",
@@ -115,6 +116,28 @@ class Manage extends React.Component<{},ManageState>{
         },
         success: function(newData){
           parent.getData();
+        }
+    });
+  }
+  addItem(){
+    var parent = this;
+    parent.setState({
+      itemLoading: true
+    });
+    $.ajax({
+        type: "GET",
+        url: "//api." + window.location.hostname + "/item/add/",
+        dataType: 'json',
+        data: {
+          id_token: AppSession['token'],
+          user_id: AppSession['id'],
+          store_id: parent.state.storeData[parent.state.storeIndex].id,
+          name: $("#newItemName").val() ,
+          img_url: $("#newItemImgUrl").val() ,
+          tag_id: $("#newItemTagNumber").val()
+        },
+        success: function(newData){
+          parent.getItems();
         }
     });
   }
@@ -169,9 +192,16 @@ class Manage extends React.Component<{},ManageState>{
           <div className="loader"></div>
         </div>
         <div>
-          <RoundButton text="add item" action={function(){}}/>
-          <RoundButton text="remove item" action={function(){}}/>
         </div>
+        <SubHeader title="add items"/>
+        <RoundButton className="normal" text="add item" action={this.addItem}/>
+        <div className="results-container" style={{flexWrap: "initial"}}>
+          <input className="inline" type="text" id="newItemName" placeholder="Item Name"/>
+          <input className="inline" type="text" id="newItemImgUrl" placeholder="Image Url"/>
+          <input className="inline" type="text" id="newItemTagNumber" placeholder="Tag Number"/>
+        </div>
+        <br/>
+
         <SubHeader title="store items"/>
         <div className={"results-container" + (!this.state.itemLoading ? '' : ' hidden')}>
           {items}
